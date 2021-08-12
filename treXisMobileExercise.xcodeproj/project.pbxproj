@@ -9,12 +9,8 @@
 /* Begin PBXBuildFile section */
 		853086CE26C5948000F494D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853086CD26C5948000F494D7 /* AppDelegate.swift */; };
 		853086D026C5948000F494D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853086CF26C5948000F494D7 /* SceneDelegate.swift */; };
-		853086D226C5948000F494D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853086D126C5948000F494D7 /* ViewController.swift */; };
-		853086D526C5948000F494D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 853086D326C5948000F494D7 /* Main.storyboard */; };
 		853086D726C5948400F494D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 853086D626C5948400F494D7 /* Assets.xcassets */; };
 		853086DA26C5948400F494D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 853086D826C5948400F494D7 /* LaunchScreen.storyboard */; };
-		853086E526C5948500F494D7 /* treXisMobileExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853086E426C5948500F494D7 /* treXisMobileExerciseTests.swift */; };
-		853086F026C5948500F494D7 /* treXisMobileExerciseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853086EF26C5948500F494D7 /* treXisMobileExerciseUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,16 +34,12 @@
 		853086CA26C5948000F494D7 /* treXisMobileExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = treXisMobileExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		853086CD26C5948000F494D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		853086CF26C5948000F494D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		853086D126C5948000F494D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		853086D426C5948000F494D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		853086D626C5948400F494D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		853086D926C5948400F494D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		853086DB26C5948400F494D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		853086E026C5948500F494D7 /* treXisMobileExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = treXisMobileExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		853086E426C5948500F494D7 /* treXisMobileExerciseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = treXisMobileExerciseTests.swift; sourceTree = "<group>"; };
 		853086E626C5948500F494D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		853086EB26C5948500F494D7 /* treXisMobileExerciseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = treXisMobileExerciseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		853086EF26C5948500F494D7 /* treXisMobileExerciseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = treXisMobileExerciseUITests.swift; sourceTree = "<group>"; };
 		853086F126C5948500F494D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,13 +91,8 @@
 		853086CC26C5948000F494D7 /* treXisMobileExercise */ = {
 			isa = PBXGroup;
 			children = (
-				853086CD26C5948000F494D7 /* AppDelegate.swift */,
-				853086CF26C5948000F494D7 /* SceneDelegate.swift */,
-				853086D126C5948000F494D7 /* ViewController.swift */,
-				853086D326C5948000F494D7 /* Main.storyboard */,
-				853086D626C5948400F494D7 /* Assets.xcassets */,
-				853086D826C5948400F494D7 /* LaunchScreen.storyboard */,
-				853086DB26C5948400F494D7 /* Info.plist */,
+				8530870326C5959800F494D7 /* Login */,
+				853086FD26C5949F00F494D7 /* Resources */,
 			);
 			path = treXisMobileExercise;
 			sourceTree = "<group>";
@@ -113,8 +100,8 @@
 		853086E326C5948500F494D7 /* treXisMobileExerciseTests */ = {
 			isa = PBXGroup;
 			children = (
-				853086E426C5948500F494D7 /* treXisMobileExerciseTests.swift */,
-				853086E626C5948500F494D7 /* Info.plist */,
+				8530870726C5961200F494D7 /* Login */,
+				8530870626C5960B00F494D7 /* Resources */,
 			);
 			path = treXisMobileExerciseTests;
 			sourceTree = "<group>";
@@ -122,10 +109,107 @@
 		853086EE26C5948500F494D7 /* treXisMobileExerciseUITests */ = {
 			isa = PBXGroup;
 			children = (
-				853086EF26C5948500F494D7 /* treXisMobileExerciseUITests.swift */,
-				853086F126C5948500F494D7 /* Info.plist */,
+				8530870826C5961A00F494D7 /* Login */,
+				8530870526C5960300F494D7 /* Resources */,
 			);
 			path = treXisMobileExerciseUITests;
+			sourceTree = "<group>";
+		};
+		853086FD26C5949F00F494D7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				853086CD26C5948000F494D7 /* AppDelegate.swift */,
+				853086CF26C5948000F494D7 /* SceneDelegate.swift */,
+				853086D626C5948400F494D7 /* Assets.xcassets */,
+				853086D826C5948400F494D7 /* LaunchScreen.storyboard */,
+				853086DB26C5948400F494D7 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		853086FE26C594B600F494D7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		853086FF26C594D100F494D7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8530870026C594D800F494D7 /* ModelControllers */,
+				853086FE26C594B600F494D7 /* ViewControllers */,
+				8530870426C595B500F494D7 /* Extensions+Helpers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8530870026C594D800F494D7 /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		8530870126C594E500F494D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8530870226C594EB00F494D7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8530870326C5959800F494D7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8530870226C594EB00F494D7 /* Models */,
+				8530870126C594E500F494D7 /* Views */,
+				853086FF26C594D100F494D7 /* Controllers */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8530870426C595B500F494D7 /* Extensions+Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Extensions+Helpers";
+			sourceTree = "<group>";
+		};
+		8530870526C5960300F494D7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				853086F126C5948500F494D7 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8530870626C5960B00F494D7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				853086E626C5948500F494D7 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8530870726C5961200F494D7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8530870826C5961A00F494D7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +317,6 @@
 			files = (
 				853086DA26C5948400F494D7 /* LaunchScreen.storyboard in Resources */,
 				853086D726C5948400F494D7 /* Assets.xcassets in Resources */,
-				853086D526C5948000F494D7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +341,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				853086D226C5948000F494D7 /* ViewController.swift in Sources */,
 				853086CE26C5948000F494D7 /* AppDelegate.swift in Sources */,
 				853086D026C5948000F494D7 /* SceneDelegate.swift in Sources */,
 			);
@@ -268,7 +350,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				853086E526C5948500F494D7 /* treXisMobileExerciseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +357,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				853086F026C5948500F494D7 /* treXisMobileExerciseUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +376,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		853086D326C5948000F494D7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				853086D426C5948000F494D7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		853086D826C5948400F494D7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,7 +510,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
-				INFOPLIST_FILE = treXisMobileExercise/Info.plist;
+				INFOPLIST_FILE = treXisMobileExercise/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +529,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
-				INFOPLIST_FILE = treXisMobileExercise/Info.plist;
+				INFOPLIST_FILE = treXisMobileExercise/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
