@@ -139,7 +139,6 @@
 			children = (
 				8530870026C594D800F494D7 /* ModelControllers */,
 				853086FE26C594B600F494D7 /* ViewControllers */,
-				8530870426C595B500F494D7 /* Extensions+Helpers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +170,7 @@
 				8530870226C594EB00F494D7 /* Models */,
 				8530870126C594E500F494D7 /* Views */,
 				853086FF26C594D100F494D7 /* Controllers */,
+				8530870426C595B500F494D7 /* Extensions+Helpers */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -548,7 +548,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
-				INFOPLIST_FILE = treXisMobileExerciseTests/Info.plist;
+				INFOPLIST_FILE = treXisMobileExerciseTests/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -570,7 +570,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
-				INFOPLIST_FILE = treXisMobileExerciseTests/Info.plist;
+				INFOPLIST_FILE = treXisMobileExerciseTests/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -591,7 +591,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
-				INFOPLIST_FILE = treXisMobileExerciseUITests/Info.plist;
+				INFOPLIST_FILE = treXisMobileExerciseUITests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -611,7 +611,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
-				INFOPLIST_FILE = treXisMobileExerciseUITests/Info.plist;
+				INFOPLIST_FILE = treXisMobileExerciseUITests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
