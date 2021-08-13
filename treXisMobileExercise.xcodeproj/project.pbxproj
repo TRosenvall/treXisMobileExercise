@@ -12,6 +12,11 @@
 		853086D726C5948400F494D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 853086D626C5948400F494D7 /* Assets.xcassets */; };
 		853086DA26C5948400F494D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 853086D826C5948400F494D7 /* LaunchScreen.storyboard */; };
 		85E22B1A26C60FE200ACFB1B /* Readme.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 85E22B1926C60FE200ACFB1B /* Readme.rtf */; };
+		85E22B3126C6E6C500ACFB1B /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */; };
+		85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */; };
+		85E22B3526C6E9F800ACFB1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */; };
+		85E22B3626C6E9F800ACFB1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */; };
+		85E22B3A26C6EACA00ACFB1B /* TestingLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3926C6EACA00ACFB1B /* TestingLoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,10 @@
 		853086EB26C5948500F494D7 /* treXisMobileExerciseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = treXisMobileExerciseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		853086F126C5948500F494D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85E22B1926C60FE200ACFB1B /* Readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
+		85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExponentialOperator.swift; sourceTree = "<group>"; };
+		85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		85E22B3926C6EACA00ACFB1B /* TestingLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingLoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				85E22B1B26C610D600ACFB1B /* AppWideHelpers */,
+				85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */,
 				853086CD26C5948000F494D7 /* AppDelegate.swift */,
 				853086CF26C5948000F494D7 /* SceneDelegate.swift */,
 				853086D626C5948400F494D7 /* Assets.xcassets */,
@@ -136,6 +146,7 @@
 		853086FE26C594B600F494D7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -207,6 +218,7 @@
 		8530870726C5961200F494D7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				85E22B3726C6EA5100ACFB1B /* Controllers */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -221,6 +233,7 @@
 		85E22B1B26C610D600ACFB1B /* AppWideHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */,
 			);
 			path = AppWideHelpers;
 			sourceTree = "<group>";
@@ -335,6 +348,22 @@
 			path = ModelControllers;
 			sourceTree = "<group>";
 		};
+		85E22B3726C6EA5100ACFB1B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				85E22B3826C6EA9300ACFB1B /* ViewControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		85E22B3826C6EA9300ACFB1B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				85E22B3926C6EACA00ACFB1B /* TestingLoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -405,6 +434,7 @@
 					};
 					853086DF26C5948500F494D7 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 						TestTargetID = 853086C926C5947F00F494D7;
 					};
 					853086EA26C5948500F494D7 = {
@@ -467,6 +497,9 @@
 			files = (
 				853086CE26C5948000F494D7 /* AppDelegate.swift in Sources */,
 				853086D026C5948000F494D7 /* SceneDelegate.swift in Sources */,
+				85E22B3126C6E6C500ACFB1B /* StyleGuide.swift in Sources */,
+				85E22B3526C6E9F800ACFB1B /* LoginViewController.swift in Sources */,
+				85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +507,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E22B3A26C6EACA00ACFB1B /* TestingLoginViewController.swift in Sources */,
+				85E22B3626C6E9F800ACFB1B /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +705,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
 				INFOPLIST_FILE = treXisMobileExerciseTests/Resources/Info.plist;
@@ -681,6 +717,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.timothyrosenvall.treXisMobileExerciseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/treXisMobileExercise.app/treXisMobileExercise";
@@ -692,6 +729,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
 				INFOPLIST_FILE = treXisMobileExerciseTests/Resources/Info.plist;
