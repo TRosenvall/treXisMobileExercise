@@ -12,6 +12,15 @@
 		853086D726C5948400F494D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 853086D626C5948400F494D7 /* Assets.xcassets */; };
 		853086DA26C5948400F494D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 853086D826C5948400F494D7 /* LaunchScreen.storyboard */; };
 		85E22B1A26C60FE200ACFB1B /* Readme.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 85E22B1926C60FE200ACFB1B /* Readme.rtf */; };
+		85E22B3126C6E6C500ACFB1B /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */; };
+		85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */; };
+		85E22B3526C6E9F800ACFB1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */; };
+		85E22B3626C6E9F800ACFB1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */; };
+		85E22B3A26C6EACA00ACFB1B /* TestingLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3926C6EACA00ACFB1B /* TestingLoginViewController.swift */; };
+		85E22B4526C98D5A00ACFB1B /* NetworkingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B4426C98D5A00ACFB1B /* NetworkingResult.swift */; };
+		85E22B4826C98D8700ACFB1B /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B4726C98D8700ACFB1B /* NetworkingError.swift */; };
+		85E22B5026C9A7A700ACFB1B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B4F26C9A7A700ACFB1B /* Networking.swift */; };
+		85E22B5126C9A7A700ACFB1B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B4F26C9A7A700ACFB1B /* Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +52,13 @@
 		853086EB26C5948500F494D7 /* treXisMobileExerciseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = treXisMobileExerciseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		853086F126C5948500F494D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85E22B1926C60FE200ACFB1B /* Readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
+		85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExponentialOperator.swift; sourceTree = "<group>"; };
+		85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		85E22B3926C6EACA00ACFB1B /* TestingLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingLoginViewController.swift; sourceTree = "<group>"; };
+		85E22B4426C98D5A00ACFB1B /* NetworkingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingResult.swift; sourceTree = "<group>"; };
+		85E22B4726C98D8700ACFB1B /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		85E22B4F26C9A7A700ACFB1B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +139,9 @@
 		853086FD26C5949F00F494D7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				85E22B4A26C99D9E00ACFB1B /* Network */,
 				85E22B1B26C610D600ACFB1B /* AppWideHelpers */,
+				85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */,
 				853086CD26C5948000F494D7 /* AppDelegate.swift */,
 				853086CF26C5948000F494D7 /* SceneDelegate.swift */,
 				853086D626C5948400F494D7 /* Assets.xcassets */,
@@ -136,6 +154,7 @@
 		853086FE26C594B600F494D7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -143,49 +162,17 @@
 		853086FF26C594D100F494D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8530870026C594D800F494D7 /* ModelControllers */,
 				853086FE26C594B600F494D7 /* ViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		8530870026C594D800F494D7 /* ModelControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ModelControllers;
-			sourceTree = "<group>";
-		};
-		8530870126C594E500F494D7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8530870226C594EB00F494D7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		8530870326C5959800F494D7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				8530870226C594EB00F494D7 /* Models */,
-				8530870126C594E500F494D7 /* Views */,
 				853086FF26C594D100F494D7 /* Controllers */,
-				8530870426C595B500F494D7 /* Extensions+Helpers */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		8530870426C595B500F494D7 /* Extensions+Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Extensions+Helpers";
 			sourceTree = "<group>";
 		};
 		8530870526C5960300F494D7 /* Resources */ = {
@@ -207,6 +194,7 @@
 		8530870726C5961200F494D7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				85E22B3726C6EA5100ACFB1B /* Controllers */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -221,6 +209,7 @@
 		85E22B1B26C610D600ACFB1B /* AppWideHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */,
 			);
 			path = AppWideHelpers;
 			sourceTree = "<group>";
@@ -335,6 +324,40 @@
 			path = ModelControllers;
 			sourceTree = "<group>";
 		};
+		85E22B3726C6EA5100ACFB1B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				85E22B3826C6EA9300ACFB1B /* ViewControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		85E22B3826C6EA9300ACFB1B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				85E22B3926C6EACA00ACFB1B /* TestingLoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		85E22B4A26C99D9E00ACFB1B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				85E22B4E26C9A76E00ACFB1B /* Models */,
+				85E22B4F26C9A7A700ACFB1B /* Networking.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		85E22B4E26C9A76E00ACFB1B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				85E22B4426C98D5A00ACFB1B /* NetworkingResult.swift */,
+				85E22B4726C98D8700ACFB1B /* NetworkingError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -405,6 +428,7 @@
 					};
 					853086DF26C5948500F494D7 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 						TestTargetID = 853086C926C5947F00F494D7;
 					};
 					853086EA26C5948500F494D7 = {
@@ -467,6 +491,12 @@
 			files = (
 				853086CE26C5948000F494D7 /* AppDelegate.swift in Sources */,
 				853086D026C5948000F494D7 /* SceneDelegate.swift in Sources */,
+				85E22B4826C98D8700ACFB1B /* NetworkingError.swift in Sources */,
+				85E22B5026C9A7A700ACFB1B /* Networking.swift in Sources */,
+				85E22B3126C6E6C500ACFB1B /* StyleGuide.swift in Sources */,
+				85E22B3526C6E9F800ACFB1B /* LoginViewController.swift in Sources */,
+				85E22B4526C98D5A00ACFB1B /* NetworkingResult.swift in Sources */,
+				85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +504,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E22B3A26C6EACA00ACFB1B /* TestingLoginViewController.swift in Sources */,
+				85E22B3626C6E9F800ACFB1B /* LoginViewController.swift in Sources */,
+				85E22B5126C9A7A700ACFB1B /* Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,7 +675,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.timothyrosenvall.treXisMobileExercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -661,7 +694,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.timothyrosenvall.treXisMobileExercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -670,6 +703,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
 				INFOPLIST_FILE = treXisMobileExerciseTests/Resources/Info.plist;
@@ -681,6 +715,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.timothyrosenvall.treXisMobileExerciseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/treXisMobileExercise.app/treXisMobileExercise";
@@ -692,6 +727,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
 				INFOPLIST_FILE = treXisMobileExerciseTests/Resources/Info.plist;
