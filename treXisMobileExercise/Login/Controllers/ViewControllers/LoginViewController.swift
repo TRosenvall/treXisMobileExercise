@@ -59,6 +59,9 @@ class LoginViewController: UIViewController {
         
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
                                                                      attributes: [NSAttributedString.Key.foregroundColor: StyleGuide.accentColorOne])
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.autocorrectionType = .no
+        passwordTextField.isSecureTextEntry = true
     }
     
     func setupPasswordUnderlineView() {
@@ -94,6 +97,8 @@ class LoginViewController: UIViewController {
         
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username",
                                                                      attributes: [NSAttributedString.Key.foregroundColor: StyleGuide.accentColorOne])
+        usernameTextField.autocapitalizationType = .none
+        usernameTextField.autocorrectionType = .no
     }
     
     func setupUsernameUnderlineView() {
@@ -127,9 +132,20 @@ class LoginViewController: UIViewController {
     
     //MARK: - UI Functions and IBActions
     @objc func loginButtonTapped() {
-        print("loginButtonTapped")
+        guard let username = usernameTextField.text,
+              let password = passwordTextField.text
+              else {return}
+        
+        let parameters = [("username", username), ("password", password)]
+        
+        Networking.request(endpoint: "/login", httpMethod: "POST", parameters: parameters) { (result: NetworkingResult<Int, Error>) in //This will either result in an error or perform a push to the dashboardViewController, in which case the type of the result is unimportant and Int was used as a placeholder.
+            if result == NetworkingResult.statusCode(200) {
+                print("Welcome")
+            } else {
+                print(result)
+            }
+        }
     }
     
     //MARK: - Helper Functions
-    
 }
