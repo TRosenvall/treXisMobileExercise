@@ -13,9 +13,7 @@ class LoginViewController: UIViewController {
     
     //MARK: - Objects and IBOutlets
     let usernameTextField = UITextField()
-    let usernameUnderlineView = UIView()
     let passwordTextField = UITextField()
-    let passwordUnderlineView = UIView()
     let loginButton = UIButton(type: .system)
 
     //MARK: - Lifecycle Functions
@@ -24,13 +22,19 @@ class LoginViewController: UIViewController {
         setupViews()
     }
     
+    override func viewDidLayoutSubviews() {
+        //Underline UITextFields
+        usernameTextField.setUnderLine(underlineColor: StyleGuide.accentColorOne)
+        passwordTextField.setUnderLine(underlineColor: StyleGuide.accentColorOne)
+        //Set UIButton cornerRadius (needed because NSLayoutConstraints)
+        loginButton.setCornerRounding(percentOfHeightForRadius: 0.33)
+    }
+    
     //MARK: - Setup and Constraint Functions
     func setupViews() {
         setupSelfView()
         setupPasswordTextField()
-        setupPasswordUnderlineView()
         setupUsernameTextField()
-        setupUsernameUnderlineView()
         setupLoginButton()
     }
     
@@ -49,31 +53,12 @@ class LoginViewController: UIViewController {
         
         passwordTextField.backgroundColor = StyleGuide.primaryColor
         passwordTextField.textColor = StyleGuide.accentColorOne
-        
-        //Adding Text Padding
-        passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 4, height: passwordTextField.frame.height))
-        passwordTextField.leftViewMode = .always
-        
-        passwordTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 4, height: passwordTextField.frame.height))
-        passwordTextField.rightViewMode = .always
-        
+
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
                                                                      attributes: [NSAttributedString.Key.foregroundColor: StyleGuide.accentColorOne])
         passwordTextField.autocapitalizationType = .none
         passwordTextField.autocorrectionType = .no
         passwordTextField.isSecureTextEntry = true
-    }
-    
-    func setupPasswordUnderlineView() {
-        passwordUnderlineView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(passwordUnderlineView)
-
-        passwordUnderlineView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: -8).isActive = true   //TODO: - Find way to adject based on NSLayoutConstraint values
-        passwordUnderlineView.bottomAnchor.constraint(equalTo: passwordUnderlineView.topAnchor, constant: 1).isActive = true
-        passwordUnderlineView.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor).isActive = true
-        passwordUnderlineView.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor).isActive = true
-
-        passwordUnderlineView.backgroundColor = StyleGuide.accentColorOne
     }
     
     func setupUsernameTextField() {
@@ -87,30 +72,11 @@ class LoginViewController: UIViewController {
         
         usernameTextField.backgroundColor = StyleGuide.primaryColor
         usernameTextField.textColor = StyleGuide.accentColorOne
-        
-        //Adding Text Padding
-        usernameTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 4, height: usernameTextField.frame.height))
-        usernameTextField.leftViewMode = .always
-        
-        usernameTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 4, height: usernameTextField.frame.height))
-        usernameTextField.rightViewMode = .always
-        
+
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username",
                                                                      attributes: [NSAttributedString.Key.foregroundColor: StyleGuide.accentColorOne])
         usernameTextField.autocapitalizationType = .none
         usernameTextField.autocorrectionType = .no
-    }
-    
-    func setupUsernameUnderlineView() {
-        usernameUnderlineView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(usernameUnderlineView)
-
-        usernameUnderlineView.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: -8).isActive = true   //TODO: - Find way to adject based on NSLayoutConstraint values
-        usernameUnderlineView.bottomAnchor.constraint(equalTo: usernameUnderlineView.topAnchor, constant: 1).isActive = true
-        usernameUnderlineView.leadingAnchor.constraint(equalTo: usernameTextField.leadingAnchor).isActive = true
-        usernameUnderlineView.trailingAnchor.constraint(equalTo: usernameTextField.trailingAnchor).isActive = true
-
-        usernameUnderlineView.backgroundColor = StyleGuide.accentColorOne
     }
     
     func setupLoginButton() {
@@ -122,7 +88,6 @@ class LoginViewController: UIViewController {
         loginButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: StyleGuide.ratio ** 0.5).isActive = true
         loginButton.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: StyleGuide.ratio ** 6.5).isActive = true
 
-        loginButton.layer.cornerRadius = 8  //TODO: - Find way to adject based on NSLayoutConstraint values
         loginButton.backgroundColor = StyleGuide.accentColorThree
         loginButton.setTitle("Login", for: .normal)
         loginButton.setTitleColor(StyleGuide.primaryColor, for: .normal)
@@ -140,7 +105,9 @@ class LoginViewController: UIViewController {
         
         Networking.request(endpoint: "/login", httpMethod: "POST", parameters: parameters) { (result: NetworkingResult<Int, Error>) in //This will either result in an error or perform a push to the dashboardViewController, in which case the type of the result is unimportant and Int was used as a placeholder.
             if result == NetworkingResult.statusCode(200) {
-                print("Welcome")
+                let dashboardViewController = DashboardViewController()
+                dashboardViewController.modalPresentationStyle = .fullScreen
+                self.present(dashboardViewController, animated: true, completion: nil)
             } else {
                 print(result)
             }

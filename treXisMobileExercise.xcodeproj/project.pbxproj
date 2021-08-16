@@ -21,6 +21,12 @@
 		85E22B4826C98D8700ACFB1B /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B4726C98D8700ACFB1B /* NetworkingError.swift */; };
 		85E22B5026C9A7A700ACFB1B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B4F26C9A7A700ACFB1B /* Networking.swift */; };
 		85E22B5126C9A7A700ACFB1B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B4F26C9A7A700ACFB1B /* Networking.swift */; };
+		85E22B5626CA073700ACFB1B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5526CA073700ACFB1B /* DashboardViewController.swift */; };
+		85E22B5726CA073700ACFB1B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5526CA073700ACFB1B /* DashboardViewController.swift */; };
+		85E22B5926CA1C9800ACFB1B /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5826CA1C9800ACFB1B /* UITextField.swift */; };
+		85E22B5A26CA1C9800ACFB1B /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5826CA1C9800ACFB1B /* UITextField.swift */; };
+		85E22B5C26CA2B9400ACFB1B /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5B26CA2B9400ACFB1B /* UIButton.swift */; };
+		85E22B5D26CA2B9400ACFB1B /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5B26CA2B9400ACFB1B /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +65,9 @@
 		85E22B4426C98D5A00ACFB1B /* NetworkingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingResult.swift; sourceTree = "<group>"; };
 		85E22B4726C98D8700ACFB1B /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		85E22B4F26C9A7A700ACFB1B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		85E22B5526CA073700ACFB1B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		85E22B5826CA1C9800ACFB1B /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		85E22B5B26CA2B9400ACFB1B /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */,
+				85E22B5826CA1C9800ACFB1B /* UITextField.swift */,
+				85E22B5B26CA2B9400ACFB1B /* UIButton.swift */,
 			);
 			path = AppWideHelpers;
 			sourceTree = "<group>";
@@ -258,6 +269,7 @@
 		85E22B2126C6134100ACFB1B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				85E22B5526CA073700ACFB1B /* DashboardViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -490,11 +502,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				853086CE26C5948000F494D7 /* AppDelegate.swift in Sources */,
+				85E22B5926CA1C9800ACFB1B /* UITextField.swift in Sources */,
+				85E22B5626CA073700ACFB1B /* DashboardViewController.swift in Sources */,
 				853086D026C5948000F494D7 /* SceneDelegate.swift in Sources */,
 				85E22B4826C98D8700ACFB1B /* NetworkingError.swift in Sources */,
 				85E22B5026C9A7A700ACFB1B /* Networking.swift in Sources */,
 				85E22B3126C6E6C500ACFB1B /* StyleGuide.swift in Sources */,
 				85E22B3526C6E9F800ACFB1B /* LoginViewController.swift in Sources */,
+				85E22B5C26CA2B9400ACFB1B /* UIButton.swift in Sources */,
 				85E22B4526C98D5A00ACFB1B /* NetworkingResult.swift in Sources */,
 				85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */,
 			);
@@ -505,8 +520,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				85E22B3A26C6EACA00ACFB1B /* TestingLoginViewController.swift in Sources */,
+				85E22B5A26CA1C9800ACFB1B /* UITextField.swift in Sources */,
 				85E22B3626C6E9F800ACFB1B /* LoginViewController.swift in Sources */,
 				85E22B5126C9A7A700ACFB1B /* Networking.swift in Sources */,
+				85E22B5726CA073700ACFB1B /* DashboardViewController.swift in Sources */,
+				85E22B5D26CA2B9400ACFB1B /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
