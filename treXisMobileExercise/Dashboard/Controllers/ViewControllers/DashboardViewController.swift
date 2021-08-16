@@ -43,6 +43,8 @@ class DashboardViewController: UIViewController {
         accountTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 22).isActive = true
         accountTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -22).isActive = true
         accountTableView.bottomAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        
+        accountTableView.register(UITableViewCell.self, forCellReuseIdentifier: "account")
     }
     
     //MARK: - UI Functions and IBActions
@@ -53,14 +55,23 @@ class DashboardViewController: UIViewController {
 
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return AccountController.shared.accounts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "Test"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "account", for: indexPath)
+        let account = AccountController.shared.accounts[indexPath.row]
+        
+        cell.textLabel?.text = account.name
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView.numberOfRows(inSection: 0) > 3 {
+            return accountTableView.frame.height/3.5
+        }
+        return accountTableView.frame.height/3
     }
 }
