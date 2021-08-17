@@ -18,6 +18,7 @@ class Networking {
             completion(.failure(NetworkingError.badURL))
             return
         }
+        
         //Build out server request
         var request = URLRequest(url: url)
         guard let url = request.url else {completion(nil); return}
@@ -41,19 +42,12 @@ class Networking {
             request.url = components?.url
         }
         
-        print(request.url!)
-        
-        
         //Send request to server
         URLSession.shared.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async { //This URLSession seems to respond with a 404 error more often than anything else. I can't seem to resolve the issue through the code here and I wonder if I have the server setup incorrectly on my machine. Should the response be a 404 error, pressing the login button a... few more times... seems make it go through.
                 if let unwrappedError = error {
                     completion(.failure(unwrappedError))
                     return
-                }
-
-                if request.url! == URL(string: "http://localhost:5555/transactions?accountId=1") {
-                    print("pop!")
                 }
                 
                 if let unwrappedData = data, endpoint != "/login" { //I don't like that I had to hard code in that it should only try running the JSONDecoder if it wasn't a login request, but the server shows that it will only return a statusCode for any login attempts. Seems like there should be a more elegant way of doing this.
@@ -100,8 +94,12 @@ class Networking {
             if let results = results,
                case .success(let result) = results {
                 completion(result)
-            } else {
+            } else if let results = results,
+                      case .failure(let error) = results {
                 print("Error retreiving model from server")
+                print(error)
+                completion(nil)
+            } else {
                 completion(nil)
             }
         }
