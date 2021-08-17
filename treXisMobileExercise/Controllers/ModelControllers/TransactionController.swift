@@ -23,4 +23,14 @@ class TransactionController {
             completion(true)
         }
     }
+    
+    //Helper Functions
+    func isNegative(balance: Float) -> Bool {
+        return balance < 0 ? true : false
+    }
+    
+    //Helper Functions
+    func formatBalance(balance: Float) -> String {
+        return isNegative(balance: balance) ? "-$\(-balance)0" : "$\(balance)0"
+    }
 }

@@ -7,37 +7,34 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: TemplateViewController {
     //MARK: - Objects and IBOutlets
     let accountTableView = UITableView()
     
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
+        backButtonText = "Logout" //Set this property here so it loads with the super.viewDidLoad
         super.viewDidLoad()
-        setupViews()
-    }
-    
-    //MARK: - Setup and Constraint Functions
-    func setupViews() {
         setupSelfView()
         setupAccountTableView()
     }
     
-    func setupSelfView() {
+    //MARK: - Setup and Constraint Functions
+    private func setupSelfView() {
         self.view.backgroundColor = StyleGuide.primaryColor
     }
     
-    func setupAccountTableView() {
+    private func setupAccountTableView() {
         accountTableView.delegate = self
         accountTableView.dataSource = self
         
         accountTableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(accountTableView)
         
-        accountTableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 22).isActive = true
-        accountTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 22).isActive = true
-        accountTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -22).isActive = true
-        accountTableView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 2/3).isActive = true
+        accountTableView.topAnchor.constraint(equalTo: navigationBarView.bottomAnchor).isActive = true
+        accountTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 8).isActive = true
+        accountTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
+        accountTableView.bottomAnchor.constraint(equalTo: tabBarView.topAnchor).isActive = true
         
         accountTableView.backgroundColor = StyleGuide.primaryColor
         
@@ -55,23 +52,31 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "account", for: indexPath) as? AccountTableViewCell else {return UITableViewCell()}
         let account = AccountController.shared.accounts[indexPath.row]
+        let isNegative = AccountController.shared.isNegative(balance: account.balance)
+        let balance = AccountController.shared.formatBalance(balance: account.balance)
         
         cell.selectionStyle = .none
         cell.backgroundColor = StyleGuide.primaryColor
-        cell.accountName = account.name
-        cell.balance = account.balance
+        cell.modelName = account.name
+        cell.isNegative = isNegative
+        cell.balance = balance
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if tableView.numberOfRows(inSection: 0) > 3 {
-            return accountTableView.frame.height/3.5
-        }
-        return accountTableView.frame.height/3
+        return 90
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        TransactionController.shared.getTransactions(accountID: "\(indexPath.row + 1)") { successfullyRetrievedTRansactions in
+            if successfullyRetrievedTRansactions {
+                //Present Transactions after receiving account information
+                let transactionsViewController = TransactionsViewController()
+                transactionsViewController.modalPresentationStyle = .fullScreen
+                transactionsViewController.accountSelected = indexPath.row
+                self.present(transactionsViewController, animated: false, completion: nil)
+            }
+        }
     }
 }

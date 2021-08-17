@@ -23,4 +23,13 @@ class AccountController {
             completion(true)
         }
     }
+    
+    func isNegative(balance: Float) -> Bool {
+        return balance < 0 ? true : false
+    }
+    
+    //Helper Functions
+    func formatBalance(balance: Float) -> String {
+        return isNegative(balance: balance) ? "-$\(-balance)" : "$\(balance)"
+    }
 }

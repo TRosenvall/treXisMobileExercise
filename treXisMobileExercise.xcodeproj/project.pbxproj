@@ -13,9 +13,10 @@
 		853086DA26C5948400F494D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 853086D826C5948400F494D7 /* LaunchScreen.storyboard */; };
 		8558DAB726CAC99B00C3138B /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAB626CAC99B00C3138B /* Transactions.swift */; };
 		8558DAB926CACE8600C3138B /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAB826CACE8600C3138B /* TransactionController.swift */; };
-		8558DABD26CAE57E00C3138B /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DABC26CAE57E00C3138B /* AccountTableViewCell.swift */; };
-		8558DABF26CB670C00C3138B /* TemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DABE26CB670C00C3138B /* TemplateTableViewCell.swift */; };
-		8558DAC726CB6A9A00C3138B /* TransactionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAC626CB6A9A00C3138B /* TransactionsTableViewCell.swift */; };
+		8558DABF26CB670C00C3138B /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DABE26CB670C00C3138B /* AccountTableViewCell.swift */; };
+		8558DAC926CB6BBB00C3138B /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAC826CB6BBB00C3138B /* TransactionsViewController.swift */; };
+		8558DACB26CC3AE000C3138B /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DACA26CC3AE000C3138B /* TemplateViewController.swift */; };
+		8558DACD26CC49B700C3138B /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DACC26CC49B700C3138B /* TransactionTableViewCell.swift */; };
 		85E22B3126C6E6C500ACFB1B /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */; };
 		85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */; };
 		85E22B3526C6E9F800ACFB1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */; };
@@ -64,9 +65,10 @@
 		853086F126C5948500F494D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8558DAB626CAC99B00C3138B /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		8558DAB826CACE8600C3138B /* TransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionController.swift; sourceTree = "<group>"; };
-		8558DABC26CAE57E00C3138B /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
-		8558DABE26CB670C00C3138B /* TemplateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTableViewCell.swift; sourceTree = "<group>"; };
-		8558DAC626CB6A9A00C3138B /* TransactionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewCell.swift; sourceTree = "<group>"; };
+		8558DABE26CB670C00C3138B /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		8558DAC826CB6BBB00C3138B /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		8558DACA26CC3AE000C3138B /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
+		8558DACC26CC49B700C3138B /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExponentialOperator.swift; sourceTree = "<group>"; };
 		85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -213,9 +215,8 @@
 		8558DAC226CB67AD00C3138B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8558DABE26CB670C00C3138B /* TemplateTableViewCell.swift */,
-				8558DABC26CAE57E00C3138B /* AccountTableViewCell.swift */,
-				8558DAC626CB6A9A00C3138B /* TransactionsTableViewCell.swift */,
+				8558DABE26CB670C00C3138B /* AccountTableViewCell.swift */,
+				8558DACC26CC49B700C3138B /* TransactionTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,7 +234,9 @@
 			isa = PBXGroup;
 			children = (
 				85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */,
+				8558DACA26CC3AE000C3138B /* TemplateViewController.swift */,
 				85E22B5526CA073700ACFB1B /* DashboardViewController.swift */,
+				8558DAC826CB6BBB00C3138B /* TransactionsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -413,19 +416,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8558DAC726CB6A9A00C3138B /* TransactionsTableViewCell.swift in Sources */,
 				853086CE26C5948000F494D7 /* AppDelegate.swift in Sources */,
 				85E22B5926CA1C9800ACFB1B /* UITextField.swift in Sources */,
 				8558DAB926CACE8600C3138B /* TransactionController.swift in Sources */,
 				8558DAB726CAC99B00C3138B /* Transactions.swift in Sources */,
 				85ED5B7926CAC3CB0062E1B0 /* NetworkingError.swift in Sources */,
-				8558DABD26CAE57E00C3138B /* AccountTableViewCell.swift in Sources */,
+				8558DAC926CB6BBB00C3138B /* TransactionsViewController.swift in Sources */,
 				85E22B5626CA073700ACFB1B /* DashboardViewController.swift in Sources */,
 				853086D026C5948000F494D7 /* SceneDelegate.swift in Sources */,
+				8558DACB26CC3AE000C3138B /* TemplateViewController.swift in Sources */,
 				85E22B5F26CAA27E00ACFB1B /* Account.swift in Sources */,
+				8558DACD26CC49B700C3138B /* TransactionTableViewCell.swift in Sources */,
 				85E22B3126C6E6C500ACFB1B /* StyleGuide.swift in Sources */,
 				85E22B3526C6E9F800ACFB1B /* LoginViewController.swift in Sources */,
-				8558DABF26CB670C00C3138B /* TemplateTableViewCell.swift in Sources */,
+				8558DABF26CB670C00C3138B /* AccountTableViewCell.swift in Sources */,
 				85E22B5C26CA2B9400ACFB1B /* UIView.swift in Sources */,
 				85E22B6126CAA7FA00ACFB1B /* AccountController.swift in Sources */,
 				85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */,

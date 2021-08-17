@@ -30,6 +30,12 @@ class LoginViewController: UIViewController {
         loginButton.setCornerRounding(percentOfHeightForRadius: 0.33)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        usernameTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
     //MARK: - Setup and Constraint Functions
     func setupViews() {
         setupSelfView()
