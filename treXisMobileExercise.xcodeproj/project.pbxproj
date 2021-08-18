@@ -17,17 +17,15 @@
 		8558DAC926CB6BBB00C3138B /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAC826CB6BBB00C3138B /* TransactionsViewController.swift */; };
 		8558DACB26CC3AE000C3138B /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DACA26CC3AE000C3138B /* TemplateViewController.swift */; };
 		8558DACD26CC49B700C3138B /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DACC26CC49B700C3138B /* TransactionTableViewCell.swift */; };
+		8558DAE226CD6D5600C3138B /* treXisMobileExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAE026CD6D5600C3138B /* treXisMobileExerciseTests.swift */; };
+		8558DAE526CD757200C3138B /* NetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAE426CD757200C3138B /* NetworkingProtocol.swift */; };
+		8558DAE826CD789D00C3138B /* MockNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAE726CD789D00C3138B /* MockNetworking.swift */; };
 		85E22B3126C6E6C500ACFB1B /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */; };
 		85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */; };
 		85E22B3526C6E9F800ACFB1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */; };
-		85E22B3626C6E9F800ACFB1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */; };
-		85E22B3A26C6EACA00ACFB1B /* TestingLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3926C6EACA00ACFB1B /* TestingLoginViewController.swift */; };
 		85E22B5626CA073700ACFB1B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5526CA073700ACFB1B /* DashboardViewController.swift */; };
-		85E22B5726CA073700ACFB1B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5526CA073700ACFB1B /* DashboardViewController.swift */; };
 		85E22B5926CA1C9800ACFB1B /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5826CA1C9800ACFB1B /* UITextField.swift */; };
-		85E22B5A26CA1C9800ACFB1B /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5826CA1C9800ACFB1B /* UITextField.swift */; };
 		85E22B5C26CA2B9400ACFB1B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5B26CA2B9400ACFB1B /* UIView.swift */; };
-		85E22B5D26CA2B9400ACFB1B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5B26CA2B9400ACFB1B /* UIView.swift */; };
 		85E22B5F26CAA27E00ACFB1B /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5E26CAA27E00ACFB1B /* Account.swift */; };
 		85E22B6126CAA7FA00ACFB1B /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B6026CAA7FA00ACFB1B /* AccountController.swift */; };
 		85ED5B7726CAC3CB0062E1B0 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED5B7326CAC3CB0062E1B0 /* Networking.swift */; };
@@ -36,14 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		853086E126C5948500F494D7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 853086C226C5947F00F494D7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 853086C926C5947F00F494D7;
-			remoteInfo = treXisMobileExercise;
-		};
-		853086EC26C5948500F494D7 /* PBXContainerItemProxy */ = {
+		8558DADB26CD6CB500C3138B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 853086C226C5947F00F494D7 /* Project object */;
 			proxyType = 1;
@@ -59,20 +50,20 @@
 		853086D626C5948400F494D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		853086D926C5948400F494D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		853086DB26C5948400F494D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		853086E026C5948500F494D7 /* treXisMobileExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = treXisMobileExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		853086E626C5948500F494D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		853086EB26C5948500F494D7 /* treXisMobileExerciseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = treXisMobileExerciseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		853086F126C5948500F494D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8558DAB626CAC99B00C3138B /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		8558DAB826CACE8600C3138B /* TransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionController.swift; sourceTree = "<group>"; };
 		8558DABE26CB670C00C3138B /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		8558DAC826CB6BBB00C3138B /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		8558DACA26CC3AE000C3138B /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
 		8558DACC26CC49B700C3138B /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		8558DAD626CD6CB400C3138B /* treXisMobileExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = treXisMobileExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8558DAE026CD6D5600C3138B /* treXisMobileExerciseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = treXisMobileExerciseTests.swift; sourceTree = "<group>"; };
+		8558DAE126CD6D5600C3138B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8558DAE426CD757200C3138B /* NetworkingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocol.swift; sourceTree = "<group>"; };
+		8558DAE726CD789D00C3138B /* MockNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworking.swift; sourceTree = "<group>"; };
 		85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExponentialOperator.swift; sourceTree = "<group>"; };
 		85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		85E22B3926C6EACA00ACFB1B /* TestingLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingLoginViewController.swift; sourceTree = "<group>"; };
 		85E22B5526CA073700ACFB1B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		85E22B5826CA1C9800ACFB1B /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		85E22B5B26CA2B9400ACFB1B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -91,14 +82,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		853086DD26C5948500F494D7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		853086E826C5948500F494D7 /* Frameworks */ = {
+		8558DAD326CD6CB400C3138B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -112,8 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				853086CC26C5948000F494D7 /* treXisMobileExercise */,
-				853086E326C5948500F494D7 /* treXisMobileExerciseTests */,
-				853086EE26C5948500F494D7 /* treXisMobileExerciseUITests */,
+				8558DAD726CD6CB500C3138B /* treXisMobileExerciseTests */,
 				853086CB26C5948000F494D7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -122,8 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				853086CA26C5948000F494D7 /* treXisMobileExercise.app */,
-				853086E026C5948500F494D7 /* treXisMobileExerciseTests.xctest */,
-				853086EB26C5948500F494D7 /* treXisMobileExerciseUITests.xctest */,
+				8558DAD626CD6CB400C3138B /* treXisMobileExerciseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,24 +123,6 @@
 			path = treXisMobileExercise;
 			sourceTree = "<group>";
 		};
-		853086E326C5948500F494D7 /* treXisMobileExerciseTests */ = {
-			isa = PBXGroup;
-			children = (
-				8530870726C5961200F494D7 /* Login */,
-				8530870626C5960B00F494D7 /* Resources */,
-			);
-			path = treXisMobileExerciseTests;
-			sourceTree = "<group>";
-		};
-		853086EE26C5948500F494D7 /* treXisMobileExerciseUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8530870826C5961A00F494D7 /* Login */,
-				8530870526C5960300F494D7 /* Resources */,
-			);
-			path = treXisMobileExerciseUITests;
-			sourceTree = "<group>";
-		};
 		853086FD26C5949F00F494D7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,37 +134,6 @@
 				853086DB26C5948400F494D7 /* Info.plist */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		8530870526C5960300F494D7 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				853086F126C5948500F494D7 /* Info.plist */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		8530870626C5960B00F494D7 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				853086E626C5948500F494D7 /* Info.plist */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		8530870726C5961200F494D7 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				85E22B3726C6EA5100ACFB1B /* Controllers */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		8530870826C5961A00F494D7 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		8558DAC126CB67A600C3138B /* Models */ = {
@@ -250,6 +183,24 @@
 			path = ModelControllers;
 			sourceTree = "<group>";
 		};
+		8558DAD726CD6CB500C3138B /* treXisMobileExerciseTests */ = {
+			isa = PBXGroup;
+			children = (
+				8558DAE626CD787900C3138B /* Network */,
+				8558DAE126CD6D5600C3138B /* Info.plist */,
+			);
+			path = treXisMobileExerciseTests;
+			sourceTree = "<group>";
+		};
+		8558DAE626CD787900C3138B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8558DAE726CD789D00C3138B /* MockNetworking.swift */,
+				8558DAE026CD6D5600C3138B /* treXisMobileExerciseTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		85E22B1B26C610D600ACFB1B /* AppWideHelpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,28 +211,13 @@
 			path = AppWideHelpers;
 			sourceTree = "<group>";
 		};
-		85E22B3726C6EA5100ACFB1B /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				85E22B3826C6EA9300ACFB1B /* ViewControllers */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		85E22B3826C6EA9300ACFB1B /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				85E22B3926C6EACA00ACFB1B /* TestingLoginViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		85ED5B7226CAC3CB0062E1B0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				85ED5B7326CAC3CB0062E1B0 /* Networking.swift */,
 				85ED5B7526CAC3CB0062E1B0 /* NetworkingResult.swift */,
 				85ED5B7626CAC3CB0062E1B0 /* NetworkingError.swift */,
+				8558DAE426CD757200C3138B /* NetworkingProtocol.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -306,41 +242,23 @@
 			productReference = 853086CA26C5948000F494D7 /* treXisMobileExercise.app */;
 			productType = "com.apple.product-type.application";
 		};
-		853086DF26C5948500F494D7 /* treXisMobileExerciseTests */ = {
+		8558DAD526CD6CB400C3138B /* treXisMobileExerciseTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 853086F726C5948500F494D7 /* Build configuration list for PBXNativeTarget "treXisMobileExerciseTests" */;
+			buildConfigurationList = 8558DADD26CD6CB500C3138B /* Build configuration list for PBXNativeTarget "treXisMobileExerciseTests" */;
 			buildPhases = (
-				853086DC26C5948500F494D7 /* Sources */,
-				853086DD26C5948500F494D7 /* Frameworks */,
-				853086DE26C5948500F494D7 /* Resources */,
+				8558DAD226CD6CB400C3138B /* Sources */,
+				8558DAD326CD6CB400C3138B /* Frameworks */,
+				8558DAD426CD6CB400C3138B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				853086E226C5948500F494D7 /* PBXTargetDependency */,
+				8558DADC26CD6CB500C3138B /* PBXTargetDependency */,
 			);
 			name = treXisMobileExerciseTests;
 			productName = treXisMobileExerciseTests;
-			productReference = 853086E026C5948500F494D7 /* treXisMobileExerciseTests.xctest */;
+			productReference = 8558DAD626CD6CB400C3138B /* treXisMobileExerciseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		853086EA26C5948500F494D7 /* treXisMobileExerciseUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 853086FA26C5948500F494D7 /* Build configuration list for PBXNativeTarget "treXisMobileExerciseUITests" */;
-			buildPhases = (
-				853086E726C5948500F494D7 /* Sources */,
-				853086E826C5948500F494D7 /* Frameworks */,
-				853086E926C5948500F494D7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				853086ED26C5948500F494D7 /* PBXTargetDependency */,
-			);
-			name = treXisMobileExerciseUITests;
-			productName = treXisMobileExerciseUITests;
-			productReference = 853086EB26C5948500F494D7 /* treXisMobileExerciseUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -354,13 +272,9 @@
 					853086C926C5947F00F494D7 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
-					853086DF26C5948500F494D7 = {
+					8558DAD526CD6CB400C3138B = {
 						CreatedOnToolsVersion = 12.5.1;
 						LastSwiftMigration = 1250;
-						TestTargetID = 853086C926C5947F00F494D7;
-					};
-					853086EA26C5948500F494D7 = {
-						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 853086C926C5947F00F494D7;
 					};
 				};
@@ -379,8 +293,7 @@
 			projectRoot = "";
 			targets = (
 				853086C926C5947F00F494D7 /* treXisMobileExercise */,
-				853086DF26C5948500F494D7 /* treXisMobileExerciseTests */,
-				853086EA26C5948500F494D7 /* treXisMobileExerciseUITests */,
+				8558DAD526CD6CB400C3138B /* treXisMobileExerciseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -395,14 +308,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		853086DE26C5948500F494D7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		853086E926C5948500F494D7 /* Resources */ = {
+		8558DAD426CD6CB400C3138B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -417,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				853086CE26C5948000F494D7 /* AppDelegate.swift in Sources */,
+				8558DAE526CD757200C3138B /* NetworkingProtocol.swift in Sources */,
 				85E22B5926CA1C9800ACFB1B /* UITextField.swift in Sources */,
 				8558DAB926CACE8600C3138B /* TransactionController.swift in Sources */,
 				8558DAB726CAC99B00C3138B /* Transactions.swift in Sources */,
@@ -438,37 +345,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		853086DC26C5948500F494D7 /* Sources */ = {
+		8558DAD226CD6CB400C3138B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85E22B3A26C6EACA00ACFB1B /* TestingLoginViewController.swift in Sources */,
-				85E22B5A26CA1C9800ACFB1B /* UITextField.swift in Sources */,
-				85E22B3626C6E9F800ACFB1B /* LoginViewController.swift in Sources */,
-				85E22B5726CA073700ACFB1B /* DashboardViewController.swift in Sources */,
-				85E22B5D26CA2B9400ACFB1B /* UIView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		853086E726C5948500F494D7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				8558DAE226CD6D5600C3138B /* treXisMobileExerciseTests.swift in Sources */,
+				8558DAE826CD789D00C3138B /* MockNetworking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		853086E226C5948500F494D7 /* PBXTargetDependency */ = {
+		8558DADC26CD6CB500C3138B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 853086C926C5947F00F494D7 /* treXisMobileExercise */;
-			targetProxy = 853086E126C5948500F494D7 /* PBXContainerItemProxy */;
-		};
-		853086ED26C5948500F494D7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 853086C926C5947F00F494D7 /* treXisMobileExercise */;
-			targetProxy = 853086EC26C5948500F494D7 /* PBXContainerItemProxy */;
+			targetProxy = 8558DADB26CD6CB500C3138B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -638,16 +530,14 @@
 			};
 			name = Release;
 		};
-		853086F826C5948500F494D7 /* Debug */ = {
+		8558DADE26CD6CB500C3138B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
-				INFOPLIST_FILE = treXisMobileExerciseTests/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				INFOPLIST_FILE = treXisMobileExerciseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -662,16 +552,14 @@
 			};
 			name = Debug;
 		};
-		853086F926C5948500F494D7 /* Release */ = {
+		8558DADF26CD6CB500C3138B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YY8J3FPYX8;
-				INFOPLIST_FILE = treXisMobileExerciseTests/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				INFOPLIST_FILE = treXisMobileExerciseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,46 +570,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/treXisMobileExercise.app/treXisMobileExercise";
-			};
-			name = Release;
-		};
-		853086FB26C5948500F494D7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YY8J3FPYX8;
-				INFOPLIST_FILE = treXisMobileExerciseUITests/Resources/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.timothyrosenvall.treXisMobileExerciseUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = treXisMobileExercise;
-			};
-			name = Debug;
-		};
-		853086FC26C5948500F494D7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YY8J3FPYX8;
-				INFOPLIST_FILE = treXisMobileExerciseUITests/Resources/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.timothyrosenvall.treXisMobileExerciseUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = treXisMobileExercise;
 			};
 			name = Release;
 		};
@@ -746,20 +594,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		853086F726C5948500F494D7 /* Build configuration list for PBXNativeTarget "treXisMobileExerciseTests" */ = {
+		8558DADD26CD6CB500C3138B /* Build configuration list for PBXNativeTarget "treXisMobileExerciseTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				853086F826C5948500F494D7 /* Debug */,
-				853086F926C5948500F494D7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		853086FA26C5948500F494D7 /* Build configuration list for PBXNativeTarget "treXisMobileExerciseUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				853086FB26C5948500F494D7 /* Debug */,
-				853086FC26C5948500F494D7 /* Release */,
+				8558DADE26CD6CB500C3138B /* Debug */,
+				8558DADF26CD6CB500C3138B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

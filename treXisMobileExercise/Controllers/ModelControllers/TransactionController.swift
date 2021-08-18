@@ -17,7 +17,7 @@ class TransactionController {
     
     //CRUD
     func getTransactions(accountID: String, completion: @escaping(Bool) -> Void) {
-        Networking.shared.getGenericModel(endpoint: "/transactions", parameters: [("accountId",accountID)]) { (transactions: [Transaction]?) in
+        Networking.getGenericModel(endpoint: "/transactions", parameters: [("accountId",accountID)]) { (transactions: [Transaction]?) in
             guard let transactions = transactions else {return}
             self.transactions = transactions
             completion(true)

@@ -109,13 +109,17 @@ class LoginViewController: UIViewController {
         
         let parameters = [("username", username), ("password", password)]
         
-        Networking.shared.login(parameters: parameters) { successfullyLoggedIn in
-            AccountController.shared.getAccounts { successfullyRetreivedAccounts in
-                if successfullyRetreivedAccounts {
-                    //Present Dashboard after receiving account information
-                    let dashboardViewController = DashboardViewController()
-                    dashboardViewController.modalPresentationStyle = .fullScreen
-                    self.present(dashboardViewController, animated: false, completion: nil)
+        //Attempt Login with Parameters
+        Networking.login(parameters: parameters) { successfullyLoggedIn in
+            //If Login Successful, retreive accounts
+            if successfullyLoggedIn {
+                AccountController.shared.getAccounts { successfullyRetreivedAccounts in
+                    if successfullyRetreivedAccounts {
+                        //Present Dashboard after receiving account information
+                        let dashboardViewController = DashboardViewController()
+                        dashboardViewController.modalPresentationStyle = .fullScreen
+                        self.present(dashboardViewController, animated: false, completion: nil)
+                    }
                 }
             }
         }

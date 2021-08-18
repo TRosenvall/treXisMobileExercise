@@ -17,7 +17,7 @@ class AccountController {
     
     //CRUD Functions
     func getAccounts(completion: @escaping(Bool) -> Void) {
-        Networking.shared.getGenericModel(endpoint: "/accounts", parameters: []) { (accounts: [Account]?) in
+        Networking.getGenericModel(endpoint: "/accounts", parameters: []) { (accounts: [Account]?) in
             guard let accounts = accounts else {return}
             self.accounts = accounts
             completion(true)

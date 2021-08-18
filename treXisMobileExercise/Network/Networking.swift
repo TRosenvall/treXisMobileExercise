@@ -8,13 +8,12 @@
 import Foundation
 
 private let baseURL = "http://localhost:5555"
-class Networking {
+class Networking: NetworkingProtocol {
     
-    static let shared = Networking()
-    
-    func request<T: Decodable> (endpoint: String, httpMethod: String, parameters: [(String, Any)], completion: @escaping(NetworkingResult<T, Error>?) -> Void) {
+    static func request<T: Decodable> (endpoint: String, httpMethod: String, parameters: [(String, Any)], completion: @escaping(NetworkingResult<T, Error>?) -> Void) {
         //Build URL
         guard let url = URL(string: baseURL + endpoint) else {
+            print("Bad URL")
             completion(.failure(NetworkingError.badURL))
             return
         }
@@ -70,7 +69,7 @@ class Networking {
         }.resume()
     }
     
-    func login( parameters: [(String, Any)], completion: @escaping(Bool) -> Void) {
+    static func login( parameters: [(String, Any)], completion: @escaping(Bool) -> Void) {
         request(endpoint: "/login", httpMethod: "POST", parameters: parameters) { (result: NetworkingResult<Int, Error>?) in //This will either result in an error or perform a push to the dashboardViewController, in which case the type of the result is unimportant and Int was used as a placeholder.
             
             guard let result = result else {return}
@@ -82,14 +81,14 @@ class Networking {
                     }
                 }
             } else {
-                print(result)
+                print("Incorrect Username or Password")
                 completion(false)
             }
         }
     }
     
-    func getGenericModel<T: Decodable&Equatable> (endpoint: String, parameters: [(String, Any)], completion: @escaping(T?) -> Void) {
-        Networking.shared.request(endpoint: endpoint, httpMethod: "GET", parameters: parameters) { (results: NetworkingResult<T, Error>?) in
+    static func getGenericModel<T: Decodable&Equatable> (endpoint: String, parameters: [(String, Any)], completion: @escaping(T?) -> Void) {
+        Networking.request(endpoint: endpoint, httpMethod: "GET", parameters: parameters) { (results: NetworkingResult<T, Error>?) in
             //Put the account info into the accountController Source of Truth
             if let results = results,
                case .success(let result) = results {
