@@ -8,7 +8,7 @@
 import Foundation
 
 private let baseURL = "http://localhost:5555"
-class Networking: NetworkingProtocol {
+class Networking {
     
     static func request<T: Decodable> (endpoint: String, httpMethod: String, parameters: [(String, Any)], completion: @escaping(NetworkingResult<T, Error>?) -> Void) {
         //Build URL

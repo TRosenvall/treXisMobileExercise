@@ -18,15 +18,23 @@ class NetworkingTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testNetworking_passingInvalidCharactersToEndpoint_ReceiveBadURLError() throws {
+    func testNetworking_passingIncorrectUsernameOrPassword_ReceiveStatusCode404() throws {
         //Arrange
-        let systemUnderTest = Networking()
+        let networkingResult: NetworkingResult<Int, Error>? = NetworkingResult.statusCode(404)
+        //let expectation = expectation(description: "Awaiting Networking Result")
         
         //Act
-        systemUnderTest.request(endpoint: "", httpMethod: "POST", parameters: []) { (result: NetworkingResult<Int, Error>?) in
-            print(result)
+        Networking.request(endpoint: "", httpMethod: "POST", parameters: []) { (results: NetworkingResult<Int, Error>?) in
+            
+            if let results = results,
+               case .statusCode(let result) = results {
+                //expectation.fulfill()
+                print(result)
+                //Assert
+                //XCTAssertEqual(result, networkingResult)
+            }
         }
         
-        //Assert
+        //waitForExpectations(timeout: 5, handler: nil)
     }
 }
