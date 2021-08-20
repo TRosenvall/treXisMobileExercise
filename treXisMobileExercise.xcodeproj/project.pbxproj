@@ -18,8 +18,9 @@
 		8558DACB26CC3AE000C3138B /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DACA26CC3AE000C3138B /* TemplateViewController.swift */; };
 		8558DACD26CC49B700C3138B /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DACC26CC49B700C3138B /* TransactionTableViewCell.swift */; };
 		8558DAE226CD6D5600C3138B /* treXisMobileExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAE026CD6D5600C3138B /* treXisMobileExerciseTests.swift */; };
-		8558DAE526CD757200C3138B /* NetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAE426CD757200C3138B /* NetworkingProtocol.swift */; };
-		8558DAE826CD789D00C3138B /* MockNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAE726CD789D00C3138B /* MockNetworking.swift */; };
+		8558DAEC26D019D300C3138B /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAEB26D019D300C3138B /* NetworkRequest.swift */; };
+		8558DAEE26D02F0C00C3138B /* NetworkRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAED26D02F0C00C3138B /* NetworkRequestProtocol.swift */; };
+		8558DAF026D03F4500C3138B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAEF26D03F4400C3138B /* UIColor.swift */; };
 		85E22B3126C6E6C500ACFB1B /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */; };
 		85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */; };
 		85E22B3526C6E9F800ACFB1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */; };
@@ -28,9 +29,6 @@
 		85E22B5C26CA2B9400ACFB1B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5B26CA2B9400ACFB1B /* UIView.swift */; };
 		85E22B5F26CAA27E00ACFB1B /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B5E26CAA27E00ACFB1B /* Account.swift */; };
 		85E22B6126CAA7FA00ACFB1B /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B6026CAA7FA00ACFB1B /* AccountController.swift */; };
-		85ED5B7726CAC3CB0062E1B0 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED5B7326CAC3CB0062E1B0 /* Networking.swift */; };
-		85ED5B7826CAC3CB0062E1B0 /* NetworkingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED5B7526CAC3CB0062E1B0 /* NetworkingResult.swift */; };
-		85ED5B7926CAC3CB0062E1B0 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ED5B7626CAC3CB0062E1B0 /* NetworkingError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +57,9 @@
 		8558DAD626CD6CB400C3138B /* treXisMobileExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = treXisMobileExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8558DAE026CD6D5600C3138B /* treXisMobileExerciseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = treXisMobileExerciseTests.swift; sourceTree = "<group>"; };
 		8558DAE126CD6D5600C3138B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8558DAE426CD757200C3138B /* NetworkingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocol.swift; sourceTree = "<group>"; };
-		8558DAE726CD789D00C3138B /* MockNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworking.swift; sourceTree = "<group>"; };
+		8558DAEB26D019D300C3138B /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		8558DAED26D02F0C00C3138B /* NetworkRequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestProtocol.swift; sourceTree = "<group>"; };
+		8558DAEF26D03F4400C3138B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExponentialOperator.swift; sourceTree = "<group>"; };
 		85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -69,9 +68,6 @@
 		85E22B5B26CA2B9400ACFB1B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		85E22B5E26CAA27E00ACFB1B /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		85E22B6026CAA7FA00ACFB1B /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
-		85ED5B7326CAC3CB0062E1B0 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		85ED5B7526CAC3CB0062E1B0 /* NetworkingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingResult.swift; sourceTree = "<group>"; };
-		85ED5B7626CAC3CB0062E1B0 /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +191,6 @@
 		8558DAE626CD787900C3138B /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				8558DAE726CD789D00C3138B /* MockNetworking.swift */,
 				8558DAE026CD6D5600C3138B /* treXisMobileExerciseTests.swift */,
 			);
 			path = Network;
@@ -205,8 +200,9 @@
 			isa = PBXGroup;
 			children = (
 				85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */,
-				85E22B5826CA1C9800ACFB1B /* UITextField.swift */,
+				8558DAEF26D03F4400C3138B /* UIColor.swift */,
 				85E22B5B26CA2B9400ACFB1B /* UIView.swift */,
+				85E22B5826CA1C9800ACFB1B /* UITextField.swift */,
 			);
 			path = AppWideHelpers;
 			sourceTree = "<group>";
@@ -214,10 +210,8 @@
 		85ED5B7226CAC3CB0062E1B0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				85ED5B7326CAC3CB0062E1B0 /* Networking.swift */,
-				85ED5B7526CAC3CB0062E1B0 /* NetworkingResult.swift */,
-				85ED5B7626CAC3CB0062E1B0 /* NetworkingError.swift */,
-				8558DAE426CD757200C3138B /* NetworkingProtocol.swift */,
+				8558DAED26D02F0C00C3138B /* NetworkRequestProtocol.swift */,
+				8558DAEB26D019D300C3138B /* NetworkRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -323,14 +317,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				853086CE26C5948000F494D7 /* AppDelegate.swift in Sources */,
-				8558DAE526CD757200C3138B /* NetworkingProtocol.swift in Sources */,
 				85E22B5926CA1C9800ACFB1B /* UITextField.swift in Sources */,
+				8558DAEC26D019D300C3138B /* NetworkRequest.swift in Sources */,
 				8558DAB926CACE8600C3138B /* TransactionController.swift in Sources */,
 				8558DAB726CAC99B00C3138B /* Transactions.swift in Sources */,
-				85ED5B7926CAC3CB0062E1B0 /* NetworkingError.swift in Sources */,
 				8558DAC926CB6BBB00C3138B /* TransactionsViewController.swift in Sources */,
 				85E22B5626CA073700ACFB1B /* DashboardViewController.swift in Sources */,
 				853086D026C5948000F494D7 /* SceneDelegate.swift in Sources */,
+				8558DAF026D03F4500C3138B /* UIColor.swift in Sources */,
 				8558DACB26CC3AE000C3138B /* TemplateViewController.swift in Sources */,
 				85E22B5F26CAA27E00ACFB1B /* Account.swift in Sources */,
 				8558DACD26CC49B700C3138B /* TransactionTableViewCell.swift in Sources */,
@@ -340,8 +334,7 @@
 				85E22B5C26CA2B9400ACFB1B /* UIView.swift in Sources */,
 				85E22B6126CAA7FA00ACFB1B /* AccountController.swift in Sources */,
 				85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */,
-				85ED5B7826CAC3CB0062E1B0 /* NetworkingResult.swift in Sources */,
-				85ED5B7726CAC3CB0062E1B0 /* Networking.swift in Sources */,
+				8558DAEE26D02F0C00C3138B /* NetworkRequestProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +343,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8558DAE226CD6D5600C3138B /* treXisMobileExerciseTests.swift in Sources */,
-				8558DAE826CD789D00C3138B /* MockNetworking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

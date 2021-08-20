@@ -10,6 +10,16 @@ import UIKit
 class DashboardViewController: TemplateViewController {
     //MARK: - Objects and IBOutlets
     let accountTableView = UITableView()
+    var networkRequestProtocol: NetworkRequestProtocol
+    
+    init(networkRequestProtocol: NetworkRequestProtocol) {
+        self.networkRequestProtocol = networkRequestProtocol
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Don't use this")
+    }
     
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -21,7 +31,7 @@ class DashboardViewController: TemplateViewController {
     
     //MARK: - Setup and Constraint Functions
     private func setupSelfView() {
-        self.view.backgroundColor = StyleGuide.primaryColor
+        self.view.backgroundColor = StyleGuide.lucasPrimaryColor
     }
     
     private func setupAccountTableView() {
@@ -36,7 +46,7 @@ class DashboardViewController: TemplateViewController {
         accountTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
         accountTableView.bottomAnchor.constraint(equalTo: tabBarView.topAnchor).isActive = true
         
-        accountTableView.backgroundColor = StyleGuide.primaryColor
+        accountTableView.backgroundColor = StyleGuide.lucasPrimaryColor
         
         accountTableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "account")
     }
@@ -52,13 +62,13 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "account", for: indexPath) as? AccountTableViewCell else {return UITableViewCell()}
         let account = AccountController.shared.accounts[indexPath.row]
-        let isNegative = AccountController.shared.isNegative(balance: account.balance)
+        let isNegativeBalance = AccountController.shared.isNegative(balance: account.balance)
         let balance = AccountController.shared.formatBalance(balance: account.balance)
         
         cell.selectionStyle = .none
-        cell.backgroundColor = StyleGuide.primaryColor
+        cell.backgroundColor = StyleGuide.lucasPrimaryColor
         cell.modelName = account.name
-        cell.isNegative = isNegative
+        cell.isPositiveBalance = !isNegativeBalance
         cell.balance = balance
         
         return cell
@@ -72,7 +82,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         TransactionController.shared.getTransactions(accountID: "\(indexPath.row + 1)") { successfullyRetrievedTRansactions in
             if successfullyRetrievedTRansactions {
                 //Present Transactions after receiving account information
-                let transactionsViewController = TransactionsViewController()
+                let transactionsViewController = TransactionsViewController(networkRequestProtocol: self.networkRequestProtocol)
                 transactionsViewController.modalPresentationStyle = .fullScreen
                 transactionsViewController.accountSelected = indexPath.row
                 self.present(transactionsViewController, animated: false, completion: nil)

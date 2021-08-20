@@ -11,13 +11,14 @@ class TransactionController {
     
     //Singleton
     static let shared = TransactionController()
+    let networkRequest = NetworkRequest()
     
     //Source of Truth
     var transactions: [Transaction] = []
     
     //CRUD
     func getTransactions(accountID: String, completion: @escaping(Bool) -> Void) {
-        Networking.getGenericModel(endpoint: "/transactions", parameters: [("accountId",accountID)]) { (transactions: [Transaction]?) in
+        networkRequest.getGenericModel(endpoint: "/transactions", parameters: [("accountId",accountID)]) { (transactions: [Transaction]?) in
             guard let transactions = transactions else {return}
             self.transactions = transactions
             completion(true)
