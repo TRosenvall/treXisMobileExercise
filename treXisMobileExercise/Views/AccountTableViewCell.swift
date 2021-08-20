@@ -7,20 +7,23 @@
 
 import UIKit
 
-class AccountTableViewCell: UITableViewCell {
+class AccountTableViewCell: UITableViewCell
+{
     //MARK: - Constants and Variables
-    var isNegative: Bool? = nil
-    var balance: String? = nil
-    var modelName: String? = nil
+    var isPositiveBalance: Bool?
+    var balance: String?
+    var modelName: String?
     
     //MARK: - Objects and IBOutlets
-    let borderView = UIView()
-    let modelNameLabel = UILabel()
-    let accountBalanceLabel = UILabel()
-    let selectArrowImageView = UIImageView()
+    private let borderView = UIView()
+    private let modelNameLabel = UILabel()
+    private let accountBalanceLabel = UILabel()
+    private let selectArrowImageView = UIImageView()
     
     //MARK: - Lifecycle Functions
-    override func layoutSubviews() {
+    //Views have access to parent cell's frame here.
+    override func layoutSubviews()
+    {
         super.layoutSubviews()
         setupBorderView()
         setupSelectArrowImageView()
@@ -29,67 +32,84 @@ class AccountTableViewCell: UITableViewCell {
     }
     
     //MARK: - Setup and Constraint Functions
-    func setupBorderView() {
-        borderView.translatesAutoresizingMaskIntoConstraints = false
+    func setupBorderView()
+    {
+        //Add
         self.addSubview(borderView)
         
-        borderView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
-        borderView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        //Constrain
+        borderView.translatesAutoresizingMaskIntoConstraints = false
+        borderView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true //Code Smell - Magic Number: 8 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        borderView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true //Code Smell - Magic Number: 8 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         borderView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         borderView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         
-        
-        guard let isNegative = isNegative else {return}
-        borderView.layer.borderColor = !isNegative ? StyleGuide.accentColorThree.cgColor : StyleGuide.accentColorTwo.cgColor
-        borderView.backgroundColor = StyleGuide.primaryColor
-        borderView.layer.borderWidth = 4
-        
-        borderView.setCornerRounding(percentOfHeightForRadius: 0.33)
+        //Set View Properties
+        guard let isPositiveBalance = isPositiveBalance
+              else {return}
+        borderView.layer.borderColor = isPositiveBalance ? UIColor.lucasAccentGreenColor.cgColor : UIColor.lucasAccentRedColor.cgColor
+        borderView.backgroundColor = UIColor.lucasPrimaryColor
+        borderView.layer.borderWidth = 2 //Code Smell - Magic Number: 2 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        borderView.setCornerRounding(percentOfHeightForRadius: 0.33) //Code Smell - Magic Number: 33% was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
     }
     
-    func setupSelectArrowImageView() {
-        selectArrowImageView.translatesAutoresizingMaskIntoConstraints = false
+    func setupSelectArrowImageView()
+    {
+        //Add
         self.addSubview(selectArrowImageView)
         
+        //Constrain
+        selectArrowImageView.translatesAutoresizingMaskIntoConstraints = false
         selectArrowImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        selectArrowImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4).isActive = true
-        selectArrowImageView.trailingAnchor.constraint(equalTo: borderView.trailingAnchor, constant: -22).isActive = true
-        selectArrowImageView.widthAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: StyleGuide.ratio ** 2).isActive = true
+        selectArrowImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4).isActive = true //Code Smell - Magic Number: 0.4 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        selectArrowImageView.trailingAnchor.constraint(equalTo: borderView.trailingAnchor, constant: -22).isActive = true //Code Smell - Magic Number: 22 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        selectArrowImageView.widthAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: StyleGuide.ratio ** 2).isActive = true //Code Smell - Magic Number: 2 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         
+        //Set View Properties
         let selectArrowimage = #imageLiteral(resourceName: "Right Arrow")
         selectArrowimage.withRenderingMode(.alwaysTemplate)
         selectArrowImageView.image = selectArrowimage
-        selectArrowImageView.tintColor = StyleGuide.accentColorOne
+        selectArrowImageView.tintColor = StyleGuide.lucasAccentLightColor
         selectArrowImageView.contentMode = .scaleAspectFit
     }
     
-    func setupModelNameLabel() {
-        modelNameLabel.translatesAutoresizingMaskIntoConstraints = false
+    func setupModelNameLabel()
+    {
+        //Add
         self.addSubview(modelNameLabel)
         
+        //Constrain
+        modelNameLabel.translatesAutoresizingMaskIntoConstraints = false
         modelNameLabel.centerYAnchor.constraint(equalTo: selectArrowImageView.topAnchor).isActive = true
-        modelNameLabel.leadingAnchor.constraint(equalTo: borderView.leadingAnchor, constant: frame.width/10).isActive = true
-        modelNameLabel.trailingAnchor.constraint(equalTo: selectArrowImageView.leadingAnchor, constant: -22).isActive = true
-        modelNameLabel.heightAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: 0.25).isActive = true
+        modelNameLabel.leadingAnchor.constraint(equalTo: borderView.leadingAnchor, constant: frame.width/10).isActive = true //Code Smell - Magic Number: 10 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        modelNameLabel.trailingAnchor.constraint(equalTo: selectArrowImageView.leadingAnchor, constant: -22).isActive = true //Code Smell - Magic Number: 22 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        modelNameLabel.heightAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: 0.25).isActive = true //Code Smell - Magic Number: 0.25 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         
-        guard let accountName = modelName else {return}
+        //Set View Properties
+        guard let accountName = modelName
+              else {return}
         modelNameLabel.text = accountName
-        modelNameLabel.textColor = StyleGuide.accentColorOne
-        modelNameLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        modelNameLabel.textColor = StyleGuide.lucasAccentLightColor
+        modelNameLabel.font = UIFont.boldSystemFont(ofSize: 22) //Code Smell - Magic Number: 22 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
     }
     
-    func setupAccountBalanceLabel() {
-        accountBalanceLabel.translatesAutoresizingMaskIntoConstraints = false
+    func setupAccountBalanceLabel()
+    {
+        //Add
         self.addSubview(accountBalanceLabel)
         
+        //Constrain
+        accountBalanceLabel.translatesAutoresizingMaskIntoConstraints = false
         accountBalanceLabel.topAnchor.constraint(equalTo: modelNameLabel.bottomAnchor).isActive = true
-        accountBalanceLabel.leadingAnchor.constraint(equalTo: borderView.leadingAnchor, constant: frame.width/10).isActive = true
-        accountBalanceLabel.trailingAnchor.constraint(equalTo: selectArrowImageView.leadingAnchor, constant: -22).isActive = true
-        accountBalanceLabel.bottomAnchor.constraint(equalTo: borderView.bottomAnchor, constant: -8).isActive = true
+        accountBalanceLabel.leadingAnchor.constraint(equalTo: borderView.leadingAnchor, constant: frame.width/10).isActive = true //Code Smell - Magic Number: 10 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        accountBalanceLabel.trailingAnchor.constraint(equalTo: selectArrowImageView.leadingAnchor, constant: -22).isActive = true //Code Smell - Magic Number: 22 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        accountBalanceLabel.bottomAnchor.constraint(equalTo: borderView.bottomAnchor, constant: -8).isActive = true //Code Smell - Magic Number: 8 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         
-        guard let accountBalance = balance else {return}
+        //Set View Properties
+        guard let accountBalance = balance
+              else {return}
         accountBalanceLabel.text = accountBalance
-        accountBalanceLabel.textColor = StyleGuide.accentColorOne
-        accountBalanceLabel.font = UIFont.boldSystemFont(ofSize: 33)
+        accountBalanceLabel.textColor = StyleGuide.lucasAccentLightColor
+        accountBalanceLabel.font = UIFont.boldSystemFont(ofSize: 33) //Code Smell - Magic Number: 33 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
     }
 }

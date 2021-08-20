@@ -7,10 +7,13 @@
 
 import UIKit
 
-extension UIView {
-    func setCornerRounding(percentOfHeightForRadius: CGFloat?) {
+extension UIView
+{
+    func setCornerRounding(percentOfHeightForRadius: CGFloat?)
+    {
         let frameHeight = frame.height
-        guard let percent = percentOfHeightForRadius else {return}
+        guard let percent = percentOfHeightForRadius
+              else {return}
         layer.cornerRadius = frameHeight * percent
     }
 }

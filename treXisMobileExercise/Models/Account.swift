@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Account: Equatable, Decodable {
+struct Account: Equatable, Decodable
+{
     let id: String
     let name: String
     let balance: Float

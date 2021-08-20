@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Transaction: Equatable, Decodable {
+struct Transaction: Equatable, Decodable
+{
     let id: String
     let title: String
     let balance: Float

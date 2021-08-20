@@ -12,6 +12,15 @@ class TemplateViewController: UIViewController {
     //MARK: - Constants and Variables
     var backButtonText: String = "Back"
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    //Deprecated
+    required init?(coder: NSCoder) {
+        fatalError("Dont use this")
+    }
+    
     //MARK: - Objects and IBOutlets
     var navigationBarView = UIView()
     var backButton = UIButton(type: .system)
@@ -42,8 +51,8 @@ class TemplateViewController: UIViewController {
         navigationBarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 1).isActive = true
         navigationBarView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: StyleGuide.ratio ** 4.65).isActive = true
         
-        navigationBarView.backgroundColor = StyleGuide.primaryColor
-        navigationBarView.layer.borderColor = StyleGuide.accentColorOne.cgColor
+        navigationBarView.backgroundColor = StyleGuide.lucasPrimaryColor
+        navigationBarView.layer.borderColor = StyleGuide.lucasAccentLightColor.cgColor
         navigationBarView.layer.borderWidth = 1
     }
     
@@ -56,12 +65,12 @@ class TemplateViewController: UIViewController {
         backButton.widthAnchor.constraint(equalTo: navigationBarView.widthAnchor, multiplier: StyleGuide.ratio ** 3).isActive = true
         backButton.heightAnchor.constraint(equalTo: navigationBarView.heightAnchor, multiplier: StyleGuide.ratio ** 2).isActive = true
 
-        backButton.backgroundColor = StyleGuide.primaryColor
+        backButton.backgroundColor = StyleGuide.lucasPrimaryColor
         backButton.setTitle(backButtonText, for: .normal)
-        backButton.setTitleColor(StyleGuide.accentColorOne, for: .normal)
+        backButton.setTitleColor(StyleGuide.lucasAccentLightColor, for: .normal)
         
         backButton.layer.borderWidth = 1
-        backButton.layer.borderColor = StyleGuide.accentColorOne.cgColor
+        backButton.layer.borderColor = StyleGuide.lucasAccentLightColor.cgColor
         
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
     }
@@ -76,8 +85,8 @@ class TemplateViewController: UIViewController {
         tabBarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 1).isActive = true
         tabBarView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: StyleGuide.ratio ** 4.65).isActive = true
         
-        tabBarView.backgroundColor = StyleGuide.primaryColor
-        tabBarView.layer.borderColor = StyleGuide.accentColorOne.cgColor
+        tabBarView.backgroundColor = StyleGuide.lucasPrimaryColor
+        tabBarView.layer.borderColor = StyleGuide.lucasAccentLightColor.cgColor
         tabBarView.layer.borderWidth = 1
     }
     
@@ -90,9 +99,9 @@ class TemplateViewController: UIViewController {
         tabBarLabel.topAnchor.constraint(equalTo: tabBarView.topAnchor, constant: 8).isActive = true
         tabBarLabel.heightAnchor.constraint(equalTo: tabBarView.heightAnchor, multiplier: StyleGuide.ratio ** 1.5).isActive = true
 
-        tabBarLabel.backgroundColor = StyleGuide.primaryColor
+        tabBarLabel.backgroundColor = StyleGuide.lucasPrimaryColor
         tabBarLabel.text = "Tab Bar Under Construction"
-        tabBarLabel.textColor = StyleGuide.accentColorOne
+        tabBarLabel.textColor = StyleGuide.lucasAccentLightColor
         tabBarLabel.textAlignment = .center
     }
     

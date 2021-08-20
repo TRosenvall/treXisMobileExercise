@@ -9,26 +9,32 @@ import Foundation
 
 class AccountController {
     
-    //Singleton
-    static let shared = AccountController()
+    //MARK: - Constants and Variables
+    let networkRequest: NetworkRequestProtocol
     
     //Source of Truth
     var accounts: [Account] = []
     
-    //CRUD Functions
+    //MARK: - Lifecycle Functions
+    init(networkRequest: NetworkRequestProtocol)
+    {
+        self.networkRequest = networkRequest
+    }
+    
+    //MARK: - CRUD Functions
     func getAccounts(completion: @escaping(Bool) -> Void) {
-        Networking.getGenericModel(endpoint: "/accounts", parameters: []) { (accounts: [Account]?) in
+        networkRequest.getGenericModel(endpoint: "/accounts", parameters: []) { (accounts: [Account]?) in
             guard let accounts = accounts else {return}
             self.accounts = accounts
             completion(true)
         }
     }
     
+    //MARK: - Helper Functions
     func isNegative(balance: Float) -> Bool {
         return balance < 0 ? true : false
     }
     
-    //Helper Functions
     func formatBalance(balance: Float) -> String {
         return isNegative(balance: balance) ? "-$\(-balance)" : "$\(balance)"
     }

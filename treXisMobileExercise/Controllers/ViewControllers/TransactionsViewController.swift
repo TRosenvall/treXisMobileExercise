@@ -12,6 +12,16 @@ class TransactionsViewController: TemplateViewController {
     let transactionsTableView = UITableView()
     var accountSelected: Int? = nil
     let totalLabel = UILabel()
+    var networkRequestProtocol: NetworkRequestProtocol
+    
+    init(networkRequestProtocol: NetworkRequestProtocol) {
+        self.networkRequestProtocol = networkRequestProtocol
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Don't use this")
+    }
     
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -23,7 +33,7 @@ class TransactionsViewController: TemplateViewController {
     
     //MARK: - Setup and Constraint Functions
     private func setupSelfView() {
-        self.view.backgroundColor = StyleGuide.primaryColor
+        self.view.backgroundColor = StyleGuide.lucasPrimaryColor
     }
     
     private func setupTransactionsTableView() {
@@ -38,7 +48,7 @@ class TransactionsViewController: TemplateViewController {
         transactionsTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
         transactionsTableView.bottomAnchor.constraint(equalTo: tabBarView.topAnchor).isActive = true
         
-        transactionsTableView.backgroundColor = StyleGuide.primaryColor
+        transactionsTableView.backgroundColor = StyleGuide.lucasPrimaryColor
         
         transactionsTableView.register(TransactionTableViewCell.self, forCellReuseIdentifier: "transaction")
         transactionsTableView.showsVerticalScrollIndicator = false
@@ -58,7 +68,7 @@ class TransactionsViewController: TemplateViewController {
         let accountBalance = AccountController.shared.formatBalance(balance: account.balance)
         totalLabel.text = "Account Total: " + accountBalance
         
-        totalLabel.textColor = StyleGuide.accentColorOne
+        totalLabel.textColor = StyleGuide.lucasAccentLightColor
         totalLabel.textAlignment = .right
     }
 }
@@ -73,13 +83,13 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath) as? TransactionTableViewCell else {return UITableViewCell()}
         let transaction = TransactionController.shared.transactions[indexPath.row]
-        let isNegative = TransactionController.shared.isNegative(balance: transaction.balance)
+        let isNegativeBalance = TransactionController.shared.isNegative(balance: transaction.balance)
         let balance = TransactionController.shared.formatBalance(balance: transaction.balance)
         
         cell.selectionStyle = .none
-        cell.backgroundColor = StyleGuide.primaryColor
+        cell.backgroundColor = StyleGuide.lucasPrimaryColor
         cell.modelName = transaction.title
-        cell.isNegative = isNegative
+        cell.isPositiveBalance = !isNegativeBalance
         cell.balance = balance
         
         return cell
