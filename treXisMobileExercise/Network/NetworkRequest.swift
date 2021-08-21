@@ -118,10 +118,18 @@ class NetworkRequest: NetworkRequestProtocol
                     else
                     {
                         print("Server Error \(statusCode)")
-                        print("Error 404: Wrong Username or Password.")
+                        print("Error 404 is thown when the user inputs the wrong username or password.")
+                        print("But this may occur for other reasons as well.")
                         print("See here for other status code meanings:")
                         print("https://developer.mozilla.org/en-US/docs/Web/HTTP/Status")
-                        completion(Result.failure(.serverError(statusCode)))
+                        if statusCode == 404
+                        {
+                            completion(.failure(.badUsernameOrPassword))
+                        }
+                        else
+                        {
+                            completion(.failure(.serverError(statusCode)))
+                        }
                     }
                 }
             }
