@@ -7,31 +7,42 @@
 
 import Foundation
 
-class TransactionController {
+class TransactionController: TransactionControllerProtocol
+{
+    //MARK: - Constants and Variables
+    var networkRequest: NetworkRequestProtocol
     
-    //Singleton
-    static let shared = TransactionController()
-    let networkRequest = NetworkRequest()
-    
-    //Source of Truth
-    var transactions: [Transaction] = []
-    
-    //CRUD
-    func getTransactions(accountID: String, completion: @escaping(Bool) -> Void) {
-        networkRequest.getGenericModel(endpoint: "/transactions", parameters: [("accountId",accountID)]) { (transactions: [Transaction]?) in
-            guard let transactions = transactions else {return}
-            self.transactions = transactions
-            completion(true)
-        }
+    //MARK: - Lifecycle Functions
+    init(networkRequest: NetworkRequestProtocol)
+    {
+        self.networkRequest = networkRequest
     }
     
-    //Helper Functions
-    func isNegative(balance: Float) -> Bool {
+    //MARK: - CRUD
+    func getTransactions(isAuthenticated: Bool, accountID: String, completion: @escaping(Result<[Transaction], NetworkError>) -> Void)
+    {
+        networkRequest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: "/transactions", parameters: [("accountId", accountID)], completion:
+        { (results: Result<[Transaction], NetworkError>?) in
+            guard let results = results
+                  else {return}
+            switch results
+            {
+            case .success(let transactions):
+                completion(.success(transactions))
+            case .failure(let networkError):
+                completion(.failure(networkError))
+            }
+        })
+    }
+    
+    //MARK: - Helper Functions
+    static func isNegative(balance: Float) -> Bool
+    {
         return balance < 0 ? true : false
     }
-    
-    //Helper Functions
-    func formatBalance(balance: Float) -> String {
+
+    static func formatBalance(balance: Float) -> String
+    {
         return isNegative(balance: balance) ? "-$\(-balance)0" : "$\(balance)0"
     }
 }

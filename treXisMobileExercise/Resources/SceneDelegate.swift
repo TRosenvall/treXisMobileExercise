@@ -10,15 +10,16 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = LoginViewController(networkRequestProtocol: NetworkRequest())
+        ///This userController class contains the information on whether or not a user is verified and authenticated and will
+        ///consequently be passed into all the controllers. This does feel like a potential security flaw, but I'm not particularly
+        ///sure what the alternative is at this point. This also doesn't seem like quite the right place to be declaring it, but
+        ///again, I'm frankly not sure what the alternative is.
+        let userControllerProtocol = UserController()
+        window?.rootViewController = LoginViewController(userControllerProtocol: userControllerProtocol)
         window?.makeKeyAndVisible()
     }
 

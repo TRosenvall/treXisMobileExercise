@@ -7,85 +7,113 @@
 
 import UIKit
 
-class TransactionsViewController: TemplateViewController {
+class TransactionsViewController: TemplateViewController
+{
+    //MARK: - Constants and Variables
+    var userControllerProtocol: UserControllerProtocol
+    
     //MARK: - Objects and IBOutlets
     let transactionsTableView = UITableView()
-    var accountSelected: Int? = nil
+    var accountSelected: Int?
     let totalLabel = UILabel()
-    var networkRequestProtocol: NetworkRequestProtocol
     
-    init(networkRequestProtocol: NetworkRequestProtocol) {
-        self.networkRequestProtocol = networkRequestProtocol
+    //MARK: - Lifecycle Functions
+    init(userControllerProtocol: UserControllerProtocol)
+    {
+        self.userControllerProtocol = userControllerProtocol
         super.init()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("Don't use this")
+    @available(*, deprecated, message: "No storyboard in use, use other init")
+    required init?(coder: NSCoder)
+    {
+        fatalError("No storyboard in use, use other init")
     }
     
-    //MARK: - Lifecycle Functions
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         setupSelfView()
-        setupTransactionsTableView()
         setupTotalLabel()
+        setupTransactionsTableView()
     }
     
     //MARK: - Setup and Constraint Functions
-    private func setupSelfView() {
+    private func setupSelfView()
+    {
         self.view.backgroundColor = StyleGuide.lucasPrimaryColor
     }
     
-    private func setupTransactionsTableView() {
+    private func setupTransactionsTableView()
+    {
+        //Set tableview delegate and dataSource
         transactionsTableView.delegate = self
         transactionsTableView.dataSource = self
         
-        transactionsTableView.translatesAutoresizingMaskIntoConstraints = false
+        //Add
         self.view.addSubview(transactionsTableView)
         
+        //Constrain
+        transactionsTableView.translatesAutoresizingMaskIntoConstraints = false
         transactionsTableView.topAnchor.constraint(equalTo: navigationBarView.bottomAnchor).isActive = true
-        transactionsTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 8).isActive = true
-        transactionsTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
+        transactionsTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 8).isActive = true //Code Smell - Magic Number: 8 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        transactionsTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true //Code Smell - Magic Number: 8 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         transactionsTableView.bottomAnchor.constraint(equalTo: tabBarView.topAnchor).isActive = true
         
+        //Properties
         transactionsTableView.backgroundColor = StyleGuide.lucasPrimaryColor
-        
-        transactionsTableView.register(TransactionTableViewCell.self, forCellReuseIdentifier: "transaction")
         transactionsTableView.showsVerticalScrollIndicator = false
+        
+        //Set cell reuse identifier
+        transactionsTableView.register(TransactionTableViewCell.self, forCellReuseIdentifier: "transaction")
     }
     
-    private func setupTotalLabel() {
-        totalLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func setupTotalLabel()
+    {
+        //Add
         navigationBarView.addSubview(totalLabel)
         
+        //Constrain
+        totalLabel.translatesAutoresizingMaskIntoConstraints = false
         totalLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor).isActive = true
-        totalLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
+        totalLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true //Code Smell - Magic Number: 8 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         totalLabel.bottomAnchor.constraint(equalTo: backButton.bottomAnchor).isActive = true
         totalLabel.leadingAnchor.constraint(equalTo: backButton.trailingAnchor).isActive = true
         
-        guard let accountSelected = accountSelected else {return}
-        let account = AccountController.shared.accounts[accountSelected]
-        let accountBalance = AccountController.shared.formatBalance(balance: account.balance)
+        //Properties
+        guard let accountSelected = accountSelected,
+              let accounts = userControllerProtocol.user.accounts
+              else {return}
+        let account = accounts[accountSelected]
+        let accountBalance = AccountController.formatBalance(balance: account.balance)
         totalLabel.text = "Account Total: " + accountBalance
-        
         totalLabel.textColor = StyleGuide.lucasAccentLightColor
         totalLabel.textAlignment = .right
     }
 }
 
 //MARK: - TableView Protocol
-extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TransactionController.shared.transactions.count
+extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        guard let transactions = userControllerProtocol.user.transactions
+              else {return 0}
+        return transactions.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        //Declare cell and what will be its account and properties
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath) as? TransactionTableViewCell,
+              let transactions = userControllerProtocol.user.transactions
+              else {return UITableViewCell()}
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath) as? TransactionTableViewCell else {return UITableViewCell()}
-        let transaction = TransactionController.shared.transactions[indexPath.row]
-        let isNegativeBalance = TransactionController.shared.isNegative(balance: transaction.balance)
-        let balance = TransactionController.shared.formatBalance(balance: transaction.balance)
+        let transaction = transactions[indexPath.row]
+        let isNegativeBalance = TransactionController.isNegative(balance: transaction.balance)
+        let balance = TransactionController.formatBalance(balance: transaction.balance)
         
+        //Properties
         cell.selectionStyle = .none
         cell.backgroundColor = StyleGuide.lucasPrimaryColor
         cell.modelName = transaction.title
@@ -95,11 +123,8 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 70 //Code Smell - Magic Number: 70 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
     }
 }

@@ -7,13 +7,10 @@
 
 import Foundation
 
-class AccountController {
-    
+class AccountController: AccountControllerProtocol
+{
     //MARK: - Constants and Variables
-    let networkRequest: NetworkRequestProtocol
-    
-    //Source of Truth
-    var accounts: [Account] = []
+    var networkRequest: NetworkRequestProtocol
     
     //MARK: - Lifecycle Functions
     init(networkRequest: NetworkRequestProtocol)
@@ -22,20 +19,30 @@ class AccountController {
     }
     
     //MARK: - CRUD Functions
-    func getAccounts(completion: @escaping(Bool) -> Void) {
-        networkRequest.getGenericModel(endpoint: "/accounts", parameters: []) { (accounts: [Account]?) in
-            guard let accounts = accounts else {return}
-            self.accounts = accounts
-            completion(true)
+    func getAccounts(isAuthenticated: Bool, completion: @escaping(Result<[Account], NetworkError>) -> Void)
+    {
+        networkRequest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: "/accounts", parameters: [])
+        { (results: Result<[Account], NetworkError>?) in
+            guard let results = results
+                  else {return}
+            switch results
+            {
+            case .success(let accounts):
+                completion(.success(accounts))
+            case .failure(let networkError):
+                completion(.failure(networkError))
+            }
         }
     }
     
     //MARK: - Helper Functions
-    func isNegative(balance: Float) -> Bool {
+    static func isNegative(balance: Float) -> Bool
+    {
         return balance < 0 ? true : false
     }
     
-    func formatBalance(balance: Float) -> String {
+    static func formatBalance(balance: Float) -> String
+    {
         return isNegative(balance: balance) ? "-$\(-balance)" : "$\(balance)"
     }
 }

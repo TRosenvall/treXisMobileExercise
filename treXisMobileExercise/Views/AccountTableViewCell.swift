@@ -1,5 +1,5 @@
 //
-//  TemplateTableViewCell.swift
+//  AccountTableViewCell.swift
 //  treXisMobileExercise
 //
 //  Created by Timothy Rosenvall on 8/16/21.
@@ -25,6 +25,7 @@ class AccountTableViewCell: UITableViewCell
     override func layoutSubviews()
     {
         super.layoutSubviews()
+        setupSelfView()
         setupBorderView()
         setupSelectArrowImageView()
         setupModelNameLabel()
@@ -32,6 +33,11 @@ class AccountTableViewCell: UITableViewCell
     }
     
     //MARK: - Setup and Constraint Functions
+    func setupSelfView()
+    {
+        self.backgroundColor = StyleGuide.lucasPrimaryColor
+    }
+    
     func setupBorderView()
     {
         //Add
@@ -44,11 +50,11 @@ class AccountTableViewCell: UITableViewCell
         borderView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         borderView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         
-        //Set View Properties
+        //Properties
         guard let isPositiveBalance = isPositiveBalance
               else {return}
-        borderView.layer.borderColor = isPositiveBalance ? UIColor.lucasAccentGreenColor.cgColor : UIColor.lucasAccentRedColor.cgColor
-        borderView.backgroundColor = UIColor.lucasPrimaryColor
+        borderView.layer.borderColor = isPositiveBalance ? StyleGuide.lucasAccentGreenColor.cgColor : StyleGuide.lucasAccentRedColor.cgColor
+        borderView.backgroundColor = StyleGuide.lucasPrimaryColor
         borderView.layer.borderWidth = 2 //Code Smell - Magic Number: 2 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         borderView.setCornerRounding(percentOfHeightForRadius: 0.33) //Code Smell - Magic Number: 33% was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
     }
@@ -65,7 +71,7 @@ class AccountTableViewCell: UITableViewCell
         selectArrowImageView.trailingAnchor.constraint(equalTo: borderView.trailingAnchor, constant: -22).isActive = true //Code Smell - Magic Number: 22 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         selectArrowImageView.widthAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: StyleGuide.ratio ** 2).isActive = true //Code Smell - Magic Number: 2 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         
-        //Set View Properties
+        //Properties
         let selectArrowimage = #imageLiteral(resourceName: "Right Arrow")
         selectArrowimage.withRenderingMode(.alwaysTemplate)
         selectArrowImageView.image = selectArrowimage
@@ -85,7 +91,7 @@ class AccountTableViewCell: UITableViewCell
         modelNameLabel.trailingAnchor.constraint(equalTo: selectArrowImageView.leadingAnchor, constant: -22).isActive = true //Code Smell - Magic Number: 22 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         modelNameLabel.heightAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: 0.25).isActive = true //Code Smell - Magic Number: 0.25 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         
-        //Set View Properties
+        //Properties
         guard let accountName = modelName
               else {return}
         modelNameLabel.text = accountName
@@ -105,7 +111,7 @@ class AccountTableViewCell: UITableViewCell
         accountBalanceLabel.trailingAnchor.constraint(equalTo: selectArrowImageView.leadingAnchor, constant: -22).isActive = true //Code Smell - Magic Number: 22 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         accountBalanceLabel.bottomAnchor.constraint(equalTo: borderView.bottomAnchor, constant: -8).isActive = true //Code Smell - Magic Number: 8 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         
-        //Set View Properties
+        //Properties
         guard let accountBalance = balance
               else {return}
         accountBalanceLabel.text = accountBalance

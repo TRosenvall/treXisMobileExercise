@@ -1,6 +1,6 @@
 //
 //  ExponentialOperator.swift
-//  AttemptOne
+//  treXisMobileExercise
 //
 //  Created by Timothy Rosenvall on 8/13/21.
 //
@@ -8,6 +8,7 @@
 
 import Foundation
 
+///I wanted access to the exponentiation opperator, and I found and copies this code from the url above.
 precedencegroup Exponentiative {
   associativity: left
   higherThan: MultiplicationPrecedence

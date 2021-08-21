@@ -7,23 +7,23 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController
+{
 
     //MARK: - Constants and Variables
-    var networkRequestProtocol: NetworkRequestProtocol
-    var accountController: AccountController
+    var userControllerProtocol: UserControllerProtocol
     
     //MARK: - Objects and IBOutlets
     let usernameTextField = UITextField()
     let passwordTextField = UITextField()
     let portTextField = UITextField()
     let loginButton = UIButton(type: .system)
+    let alertView = AlertView()
 
     //MARK: - Lifecycle Functions
-    init(networkRequestProtocol: NetworkRequestProtocol)
+    init(userControllerProtocol: UserControllerProtocol)
     {
-        self.networkRequestProtocol = networkRequestProtocol
-        self.accountController = AccountController(networkRequest: networkRequestProtocol)
+        self.userControllerProtocol = userControllerProtocol
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,6 +41,7 @@ class LoginViewController: UIViewController {
         setupUsernameTextField()
         setupPortTextField()
         setupLoginButton()
+        setupAlertView()
     }
     
     override func viewDidLayoutSubviews()
@@ -50,7 +51,7 @@ class LoginViewController: UIViewController {
         passwordTextField.setUnderLine(underlineColor: StyleGuide.lucasAccentLightColor)
         portTextField.setUnderLine(underlineColor: StyleGuide.lucasAccentLightColor)
         //Set UIButton cornerRadius (needed because NSLayoutConstraints)
-        loginButton.setCornerRounding(percentOfHeightForRadius: 0.33)
+        loginButton.setCornerRounding(percentOfHeightForRadius: 0.33) //Code Smell - Magic Number: 33% was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -64,7 +65,7 @@ class LoginViewController: UIViewController {
     //MARK: - Setup and Constraint Functions
     func setupSelfView()
     {
-        //Set View Properties
+        //Properties
         self.view.backgroundColor = StyleGuide.lucasPrimaryColor
     }
     
@@ -78,11 +79,11 @@ class LoginViewController: UIViewController {
         passwordTextField.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         passwordTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         passwordTextField.widthAnchor.constraint(equalTo: self.view.widthAnchor,
-                                                 multiplier: StyleGuide.ratio ** 0.5).isActive = true
+                                                 multiplier: StyleGuide.ratio ** 0.5).isActive = true //Code Smell - Magic Number: 0.5 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         passwordTextField.heightAnchor.constraint(equalTo: self.view.heightAnchor,
-                                                  multiplier: StyleGuide.ratio ** 6).isActive = true
+                                                  multiplier: StyleGuide.ratio ** 6).isActive = true //Code Smell - Magic Number: 6 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         
-        //Set View Properties
+        //Properties
         passwordTextField.backgroundColor = StyleGuide.lucasPrimaryColor
         passwordTextField.textColor = StyleGuide.lucasAccentLightColor
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
@@ -102,11 +103,11 @@ class LoginViewController: UIViewController {
         usernameTextField.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor).isActive = true
         usernameTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         usernameTextField.widthAnchor.constraint(equalTo: self.view.widthAnchor,
-                                                 multiplier: StyleGuide.ratio ** 0.5).isActive = true
+                                                 multiplier: StyleGuide.ratio ** 0.5).isActive = true //Code Smell - Magic Number: 0.5 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         usernameTextField.heightAnchor.constraint(equalTo: self.view.heightAnchor,
-                                                  multiplier: StyleGuide.ratio ** 6).isActive = true
+                                                  multiplier: StyleGuide.ratio ** 6).isActive = true //Code Smell - Magic Number: 6 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         
-        //Set View Properties
+        //Properties
         usernameTextField.backgroundColor = StyleGuide.lucasPrimaryColor
         usernameTextField.textColor = StyleGuide.lucasAccentLightColor
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username",
@@ -125,14 +126,14 @@ class LoginViewController: UIViewController {
         portTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor).isActive = true
         portTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         portTextField.widthAnchor.constraint(equalTo: self.view.widthAnchor,
-                                             multiplier: StyleGuide.ratio ** 0.5).isActive = true
+                                             multiplier: StyleGuide.ratio ** 0.5).isActive = true //Code Smell - Magic Number: 0.5 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         portTextField.heightAnchor.constraint(equalTo: self.view.heightAnchor,
-                                              multiplier: StyleGuide.ratio ** 6).isActive = true
+                                              multiplier: StyleGuide.ratio ** 6).isActive = true //Code Smell - Magic Number: 6 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         
-        //Set View Properties
+        //Properties
         portTextField.backgroundColor = StyleGuide.lucasPrimaryColor
         portTextField.textColor = StyleGuide.lucasAccentLightColor
-        portTextField.attributedPlaceholder = NSAttributedString(string: "Server Port Number",
+        portTextField.attributedPlaceholder = NSAttributedString(string: "Server Port (Default 5555)",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: StyleGuide.lucasAccentLightColor])
         portTextField.autocapitalizationType = .none
         portTextField.autocorrectionType = .no
@@ -147,11 +148,11 @@ class LoginViewController: UIViewController {
         //Constrain
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        loginButton.topAnchor.constraint(equalTo: portTextField.bottomAnchor, constant: 8).isActive = true
-        loginButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: StyleGuide.ratio ** 0.5).isActive = true
-        loginButton.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: StyleGuide.ratio ** 6.5).isActive = true
+        loginButton.topAnchor.constraint(equalTo: portTextField.bottomAnchor, constant: 8).isActive = true //Code Smell - Magic Number: 8 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        loginButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: StyleGuide.ratio ** 0.5).isActive = true //Code Smell - Magic Number: 0.5 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        loginButton.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: StyleGuide.ratio ** 6.5).isActive = true //Code Smell - Magic Number: 6.5 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
 
-        //Set View Properties
+        //Properties
         loginButton.backgroundColor = StyleGuide.lucasAccentGreenColor
         loginButton.setTitle("Login", for: .normal)
         loginButton.setTitleColor(StyleGuide.lucasPrimaryColor, for: .normal)
@@ -160,55 +161,65 @@ class LoginViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
     
+    func setupAlertView()
+    {
+        //Add
+        self.view.addSubview(alertView)
+        
+        //Constrain
+        alertView.translatesAutoresizingMaskIntoConstraints = false
+        alertView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 22).isActive = true //Code Smell - Magic Number: 22 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        alertView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        alertView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: StyleGuide.ratio ** 0.5).isActive = true //Code Smell - Magic Number: 0.5 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        alertView.heightAnchor.constraint(equalTo: alertView.widthAnchor, multiplier: StyleGuide.ratio ** 2.5).isActive = true //Code Smell - Magic Number: 2.5 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+        
+        //Properties
+        alertView.setCornerRounding(percentOfHeightForRadius: 0.33) //Code Smell - Magic Number: 33% was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
+    }
+    
     //MARK: - UI Functions and IBActions
     @objc func loginButtonTapped()
     {
-        
         guard let username = usernameTextField.text,
               let password = passwordTextField.text,
               let portNumber = portTextField.text
               else {return}
         
-        networkRequestProtocol.port = portNumber
+        userControllerProtocol.setUsernameAndPassword(username: username, password: password)
         
         let parameters = [("username", username), ("password", password)]
         
-        networkRequestProtocol.ping
-        { successfullyPingedServer in
-            if successfullyPingedServer
+        ///The following code is two nested network calls which I'm not quite happy about. Ideally I'd like to keep things on
+        ///the root level and independent of each other, but this feels like the most efficient solution currently.
+        userControllerProtocol.authenticateAndLogin(port: portNumber, parameters: parameters) { results in
+            switch results
             {
-                //Attempt Login with Parameters
-                self.networkRequestProtocol.login(parameters: parameters)
-                { successfullyLoggedIn in
-                    //If the Login request was successful, try to pull the accounts
-                    if successfullyLoggedIn
+            case .success():
+                //Attempt to get user accounts from server.
+                self.userControllerProtocol.retrieveAccounts
+                { results in
+                    switch results
                     {
-                        self.accountController.getAccounts
-                        { successfullyRetreivedAccounts in
-                            //If accounts were successfully retreived
-                            if successfullyRetreivedAccounts
-                            {
-                                //Present Dashboard after receiving account information
-                                let dashboardViewController = DashboardViewController(networkRequestProtocol: self.networkRequestProtocol)
-                                dashboardViewController.modalPresentationStyle = .fullScreen
-                                self.present(dashboardViewController, animated: false, completion: nil)
-                            }
-                            else
-                            {
-                                print("Unable to retrieve account data.")
-                            }
-                        }
-                    }
-                    else
-                    {
-                        print("Incorrect Username or Password.")
+                    case .success():
+                        //Present Dashboard after receiving account information
+                        let dashboardViewController = DashboardViewController(userControllerProtocol: self.userControllerProtocol)
+                        dashboardViewController.modalPresentationStyle = .fullScreen
+                        self.present(dashboardViewController, animated: false, completion: nil)
+                    case .failure(let networkError):
+                        self.sendNetworkErrorToAlertView(networkError: networkError)
                     }
                 }
+            case.failure(let networkError):
+                self.sendNetworkErrorToAlertView(networkError: networkError)
             }
-            else
-            {
-                print("Server Unreachable at Port \(portNumber)")
-            }
+        }
+    }
+    
+    //MARK: - Helper Functions
+    func sendNetworkErrorToAlertView(networkError: NetworkError) {
+        print(networkError)
+        DispatchQueue.main.async {
+            self.alertView.errorString = networkError.description
         }
     }
 }
