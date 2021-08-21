@@ -34,15 +34,4 @@ class AccountController: AccountControllerProtocol
             }
         }
     }
-    
-    //MARK: - Helper Functions
-    static func isNegative(balance: Float) -> Bool
-    {
-        return balance < 0 ? true : false
-    }
-    
-    static func formatBalance(balance: Float) -> String
-    {
-        return isNegative(balance: balance) ? "-$\(-balance)" : "$\(balance)"
-    }
 }

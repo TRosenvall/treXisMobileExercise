@@ -17,7 +17,6 @@
 		8558DAC926CB6BBB00C3138B /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAC826CB6BBB00C3138B /* TransactionsViewController.swift */; };
 		8558DACB26CC3AE000C3138B /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DACA26CC3AE000C3138B /* TemplateViewController.swift */; };
 		8558DACD26CC49B700C3138B /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DACC26CC49B700C3138B /* TransactionTableViewCell.swift */; };
-		8558DAE226CD6D5600C3138B /* treXisMobileExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAE026CD6D5600C3138B /* treXisMobileExerciseTests.swift */; };
 		8558DAEC26D019D300C3138B /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAEB26D019D300C3138B /* NetworkRequest.swift */; };
 		8558DAEE26D02F0C00C3138B /* NetworkRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAED26D02F0C00C3138B /* NetworkRequestProtocol.swift */; };
 		8558DAF226D081C400C3138B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAF126D081C400C3138B /* User.swift */; };
@@ -27,6 +26,7 @@
 		8558DAFA26D0DCE700C3138B /* UserControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAF926D0DCE700C3138B /* UserControllerProtocol.swift */; };
 		8558DAFC26D0DF8700C3138B /* AccountControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAFB26D0DF8600C3138B /* AccountControllerProtocol.swift */; };
 		8558DAFE26D0E3F800C3138B /* TransactionControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAFD26D0E3F800C3138B /* TransactionControllerProtocol.swift */; };
+		8558DB0026D1C45800C3138B /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAFF26D1C45700C3138B /* Balance.swift */; };
 		85E22B3126C6E6C500ACFB1B /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */; };
 		85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */; };
 		85E22B3526C6E9F800ACFB1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */; };
@@ -61,7 +61,6 @@
 		8558DACA26CC3AE000C3138B /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
 		8558DACC26CC49B700C3138B /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		8558DAD626CD6CB400C3138B /* treXisMobileExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = treXisMobileExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8558DAE026CD6D5600C3138B /* treXisMobileExerciseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = treXisMobileExerciseTests.swift; sourceTree = "<group>"; };
 		8558DAE126CD6D5600C3138B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8558DAEB26D019D300C3138B /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		8558DAED26D02F0C00C3138B /* NetworkRequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestProtocol.swift; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		8558DAF926D0DCE700C3138B /* UserControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserControllerProtocol.swift; sourceTree = "<group>"; };
 		8558DAFB26D0DF8600C3138B /* AccountControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountControllerProtocol.swift; sourceTree = "<group>"; };
 		8558DAFD26D0E3F800C3138B /* TransactionControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionControllerProtocol.swift; sourceTree = "<group>"; };
+		8558DAFF26D1C45700C3138B /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExponentialOperator.swift; sourceTree = "<group>"; };
 		85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -209,7 +209,6 @@
 		8558DAE626CD787900C3138B /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				8558DAE026CD6D5600C3138B /* treXisMobileExerciseTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -220,6 +219,7 @@
 				85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */,
 				85E22B5B26CA2B9400ACFB1B /* UIView.swift */,
 				85E22B5826CA1C9800ACFB1B /* UITextField.swift */,
+				8558DAFF26D1C45700C3138B /* Balance.swift */,
 			);
 			path = AppWideHelpers;
 			sourceTree = "<group>";
@@ -334,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8558DB0026D1C45800C3138B /* Balance.swift in Sources */,
 				853086CE26C5948000F494D7 /* AppDelegate.swift in Sources */,
 				85E22B5926CA1C9800ACFB1B /* UITextField.swift in Sources */,
 				8558DAF426D08DA400C3138B /* UserController.swift in Sources */,
@@ -366,7 +367,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8558DAE226CD6D5600C3138B /* treXisMobileExerciseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

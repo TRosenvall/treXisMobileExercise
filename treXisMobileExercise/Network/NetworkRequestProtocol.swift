@@ -8,8 +8,15 @@
 import Foundation
 protocol NetworkRequestProtocol
 {
+    //MARK: - Constants and Variables
+    //I probably should have made this a global variable so that nothing absolutely required the entire NetworkRequestProtocol. Then I could have made the NetworkRequestProtocol functions static and kept their calls confined to themselves. A potential refactor for the future.
+    ///This variable is set with the initial value of 5555. The variable may be reset upon attempting to login. First,
+    ///should the `portTextField` value not be empty, the port value will be updated on the instance of `NetworkRequest` within
+    ///the active `UserController`. The userController will then attempt to ping the server before logging in. Should the ping
+    ///fail, the port is reset to it's default value of 5555, otherwise the userController will attempt to login.
     var port: String { get set }
     
+    //MARK: - Protocol Functions
     ///Attempts to ping the server and checks whether or not the server is able to be reached. If the server is reachable,
     ///the server completion handler returns true. The only way this function should fail is if the port is input incorrectly.
     ///

@@ -85,7 +85,7 @@ class TransactionsViewController: TemplateViewController
               let accounts = userControllerProtocol.user.accounts
               else {return}
         let account = accounts[accountSelected]
-        let accountBalance = AccountController.formatBalance(balance: account.balance)
+        let accountBalance = Balance.format(balance: account.balance)
         totalLabel.text = "Account Total: " + accountBalance
         totalLabel.textColor = StyleGuide.lucasAccentLightColor
         totalLabel.textAlignment = .right
@@ -110,8 +110,8 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
               else {return UITableViewCell()}
         
         let transaction = transactions[indexPath.row]
-        let isNegativeBalance = TransactionController.isNegative(balance: transaction.balance)
-        let balance = TransactionController.formatBalance(balance: transaction.balance)
+        let isNegativeBalance = Balance.isNegative(balance: transaction.balance)
+        let balance = Balance.format(balance: transaction.balance)
         
         //Properties
         cell.selectionStyle = .none
