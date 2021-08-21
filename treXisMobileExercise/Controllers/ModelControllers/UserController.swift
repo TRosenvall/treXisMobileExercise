@@ -24,7 +24,7 @@ class UserController: UserControllerProtocol
         self.transactionControllerProtocol = TransactionController(networkRequest: self.networkRequest)
     }
     
-    //MARK: - CRUD and Helper Functions
+    //MARK: - CRUD and Protocol Functions
     func setUsernameAndPassword(username: String, password: String)
     {
         user.username = username

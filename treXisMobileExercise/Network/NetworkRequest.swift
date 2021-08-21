@@ -122,7 +122,7 @@ class NetworkRequest: NetworkRequestProtocol
                         print("But this may occur for other reasons as well.")
                         print("See here for other status code meanings:")
                         print("https://developer.mozilla.org/en-US/docs/Web/HTTP/Status")
-                        if statusCode == 404
+                        if statusCode == 404 //This may not be the only way to get this error, but for now, passing in the wrong username or password appears to be the only way to get it.
                         {
                             completion(.failure(.badUsernameOrPassword))
                         }

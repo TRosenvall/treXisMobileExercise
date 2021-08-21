@@ -11,7 +11,7 @@ import Foundation
 struct User
 {
     var username: String? = nil
-    var password: String? = nil
+    var password: String? = nil //This value wouldn't normally be tracked, particularly as a plaintext value. In this case, I simply left if here for the sake of completion.
     var authenticationToken: String? = nil
     var isAuthenticated: Bool = false
     var accounts: [Account]? = []

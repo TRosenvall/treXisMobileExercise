@@ -9,6 +9,7 @@ import UIKit
 
 enum NetworkError: Error
 {
+    //All the potential ways the NetworkRequestProtocol functions may fail so far.
     case badPort
     case badURL
     case badUsernameOrPassword
@@ -17,6 +18,7 @@ enum NetworkError: Error
     case serverError(Int)
     case badData
     
+    //This variable when called on the NetworkError instance will yeild a more user readable description of the error.
     var description: String
     {
         get

@@ -93,8 +93,8 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource
               let accounts = userControllerProtocol.user.accounts
               else {return UITableViewCell()}
         let account = accounts[indexPath.row]
-        let isNegativeBalance = AccountController.isNegative(balance: account.balance)
-        let balance = AccountController.formatBalance(balance: account.balance)
+        let isNegativeBalance = Balance.isNegative(balance: account.balance)
+        let balance = Balance.format(balance: account.balance)
         
         //Properties
         cell.selectionStyle = .none
