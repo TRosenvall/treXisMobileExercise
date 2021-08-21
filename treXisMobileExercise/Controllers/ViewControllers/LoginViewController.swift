@@ -60,6 +60,8 @@ class LoginViewController: UIViewController
         //Reset username and password text fields
         usernameTextField.text = ""
         passwordTextField.text = ""
+        alertView.errorString = nil
+        alertView.alpha = 0
     }
     
     //MARK: - Setup and Constraint Functions
