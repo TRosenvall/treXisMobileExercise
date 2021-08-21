@@ -15,9 +15,9 @@ class TransactionTableViewCell: UITableViewCell
     var modelName: String?
     
     //MARK: - Objects and IBOutlets
-    let borderView = UIView()
-    let modelNameLabel = UILabel()
-    let transactionBalanceLabel = UILabel()
+    private let borderView = UIView()
+    private let modelNameLabel = UILabel()
+    private let transactionBalanceLabel = UILabel()
     
     //MARK: - Lifecycle Functions
     //Views have access to parent cell's frame here.
@@ -42,7 +42,7 @@ class TransactionTableViewCell: UITableViewCell
         borderView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         borderView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         
-        //Set View Properties
+        //Properties
         guard let isPositiveBalance = isPositiveBalance
               else {return}
         borderView.layer.borderColor = isPositiveBalance ? StyleGuide.lucasAccentGreenColor.cgColor : StyleGuide.lucasAccentRedColor.cgColor
@@ -63,7 +63,7 @@ class TransactionTableViewCell: UITableViewCell
         transactionBalanceLabel.trailingAnchor.constraint(equalTo: borderView.trailingAnchor, constant: -11).isActive = true //Code Smell - Magic Number: -11 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         transactionBalanceLabel.heightAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: StyleGuide.ratio ** 2).isActive = true //Code Smell - Magic Number: 2 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         
-        //Set View Properties
+        //Properties
         guard let transactionBalance = balance
               else {return}
         transactionBalanceLabel.text = transactionBalance
@@ -84,7 +84,7 @@ class TransactionTableViewCell: UITableViewCell
         modelNameLabel.trailingAnchor.constraint(equalTo: transactionBalanceLabel.trailingAnchor).isActive = true
         modelNameLabel.heightAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: StyleGuide.ratio ** 2).isActive = true //Code Smell - Magic Number: 2 was arbitrarily chosen, it looked nice, it should have come as a definition from the style guide
         
-        //Set View Properties
+        //Properties
         guard let accountName = modelName
               else {return}
         modelNameLabel.text = accountName
