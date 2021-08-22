@@ -43,3 +43,5 @@ enum NetworkError: Error
         }
     }
 }
+
+extension NetworkError: Equatable{}

@@ -9,13 +9,13 @@ import Foundation
 
 //Server has been setup on port 5555
 private let baseURL = "http://localhost:"
-private let defaultPort = "5555"
+private let defaultPort = "5555" //This should probably be a global variable which sets to the last working port.
 
 class NetworkRequest: NetworkRequestProtocol
 {
     //MARK: - Variables and Constants
-    //Admittedly, this urlSessionProtocol is marked as internal because the compiler told me to. I'll look this up later to understand why.
-    internal let urlSessionProtocol: URLSessionProtocol
+    //Admittedly, this urlSessionProtocol is marked as internal because the compiler told me to. I need to look this up later to understand why.
+    internal var urlSessionProtocol: URLSessionProtocol
     var baseURLWithPort: String = baseURL + defaultPort
     
     //This variable is set in the LoginViewController when the login button is tapped. It is also reset to the default port should a bad port be tried in the ping() function below.
@@ -33,7 +33,6 @@ class NetworkRequest: NetworkRequestProtocol
     }
     
     //MARK: - Lifecycle Functions
-    //Ideally this would be apart of the URLSessionProtocol, but I couldn't figure out how to get it to work. This is something I will study and learn how to make work.
     init(urlSessionProtocol: URLSessionProtocol)
     {
         self.urlSessionProtocol = urlSessionProtocol
@@ -43,8 +42,12 @@ class NetworkRequest: NetworkRequestProtocol
     func ping(completion: @escaping (Result<Bool, NetworkError>) -> Void)
     {
         //Build URL
-        guard let url = URL(string: baseURLWithPort)
-              else {return}
+        guard let url = URL(string: baseURLWithPort) else
+        {
+            print("Bad URL")
+            completion(.failure(.badURL));
+            return
+        }
         
         //Build out server request
         var request = URLRequest(url: url)
