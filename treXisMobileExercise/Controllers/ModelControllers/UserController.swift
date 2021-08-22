@@ -10,7 +10,8 @@ import Foundation
 class UserController: UserControllerProtocol
 {
     //MARK: - Constants and Variables
-    var networkRequest: NetworkRequestProtocol = NetworkRequest() //This networkRequestProtocol is singular and passed through every other controller as needed. It should not be declared again.
+    var urlSessionProtocol = URLSession.shared
+    var networkRequest: NetworkRequestProtocol //This networkRequestProtocol is singular and passed through every other controller as needed. It should not be declared again.
     var accountControllerProtocol: AccountControllerProtocol
     var transactionControllerProtocol: TransactionControllerProtocol
     
@@ -20,6 +21,7 @@ class UserController: UserControllerProtocol
     //MARK: - Lifecycle Functions
     init()
     {
+        self.networkRequest = NetworkRequest(urlSessionProtocol: self.urlSessionProtocol)
         self.accountControllerProtocol = AccountController(networkRequest: self.networkRequest)
         self.transactionControllerProtocol = TransactionController(networkRequest: self.networkRequest)
     }

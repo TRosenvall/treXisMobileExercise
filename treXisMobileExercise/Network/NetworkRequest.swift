@@ -14,16 +14,29 @@ private let defaultPort = "5555"
 class NetworkRequest: NetworkRequestProtocol
 {
     //MARK: - Variables and Constants
-    private var baseURLWithPort: String = baseURL + defaultPort
+    //Admittedly, this urlSessionProtocol is marked as internal because the compiler told me to. I'll look this up later to understand why.
+    internal let urlSessionProtocol: URLSessionProtocol
+    var baseURLWithPort: String = baseURL + defaultPort
     
     //This variable is set in the LoginViewController when the login button is tapped. It is also reset to the default port should a bad port be tried in the ping() function below.
     var port: String = defaultPort
     {
         didSet
         {
-            //This is the string that will be passed into all of the networking functions for the URL
-            baseURLWithPort = baseURL + port
+            //Only run this didset if all the characters of port are numbers.
+            if port.isNumeric
+            {
+                //This is the string that will be passed into all of the networking functions for the URL
+                baseURLWithPort = baseURL + port
+            }
         }
+    }
+    
+    //MARK: - Lifecycle Functions
+    //Ideally this would be apart of the URLSessionProtocol, but I couldn't figure out how to get it to work. This is something I will study and learn how to make work.
+    init(urlSessionProtocol: URLSessionProtocol)
+    {
+        self.urlSessionProtocol = urlSessionProtocol
     }
     
     //MARK: - Protocol Functions
@@ -38,7 +51,7 @@ class NetworkRequest: NetworkRequestProtocol
             request.httpMethod = "HEAD"
 
         //Send Request to Server
-        URLSession.shared.dataTask(with: request)
+        urlSessionProtocol.dataTask(with: request)
         { (_, response, error) -> Void in
             //Error Handling
             if let unwrappedError = error
@@ -49,8 +62,10 @@ class NetworkRequest: NetworkRequestProtocol
                 completion(.failure(.badPort))
                 return
             }
-            else
+            
+            if let unwrappedResponse = response //Port accepted, error 404 with no username or password. But the port is good.
             {
+                print(unwrappedResponse)
                 print("Port Accepted")
                 completion(.success(true))
             }
@@ -92,7 +107,7 @@ class NetworkRequest: NetworkRequestProtocol
         request.httpBody = queryItemsData
         
         //Send request to server
-        URLSession.shared.dataTask(with: request)
+        urlSessionProtocol.dataTask(with: request)
         { data, response, error in
             DispatchQueue.main.async
             {
@@ -175,7 +190,7 @@ class NetworkRequest: NetworkRequestProtocol
             request.url = components?.url
             
             //Send request to server
-            URLSession.shared.dataTask(with: request)
+            urlSessionProtocol.dataTask(with: request)
             { data, response, error in
                 DispatchQueue.main.async
                 {

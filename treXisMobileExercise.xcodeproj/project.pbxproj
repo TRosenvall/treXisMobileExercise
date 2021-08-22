@@ -27,6 +27,12 @@
 		8558DAFC26D0DF8700C3138B /* AccountControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAFB26D0DF8600C3138B /* AccountControllerProtocol.swift */; };
 		8558DAFE26D0E3F800C3138B /* TransactionControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAFD26D0E3F800C3138B /* TransactionControllerProtocol.swift */; };
 		8558DB0026D1C45800C3138B /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DAFF26D1C45700C3138B /* Balance.swift */; };
+		8558DB0426D1C85D00C3138B /* NetworkRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DB0326D1C85D00C3138B /* NetworkRequestTests.swift */; };
+		8558DB0626D1CA7400C3138B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DB0526D1CA7300C3138B /* String.swift */; };
+		8558DB0A26D1CFD000C3138B /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DB0926D1CFD000C3138B /* MockURLSession.swift */; };
+		8558DB0C26D1D01F00C3138B /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DB0B26D1D01F00C3138B /* MockURLSessionDataTask.swift */; };
+		8558DB0E26D1D2D700C3138B /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DB0D26D1D2D700C3138B /* URLSessionProtocol.swift */; };
+		8558DB1026D1D5B300C3138B /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558DB0F26D1D5B300C3138B /* URLSessionExtension.swift */; };
 		85E22B3126C6E6C500ACFB1B /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */; };
 		85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */; };
 		85E22B3526C6E9F800ACFB1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */; };
@@ -72,6 +78,12 @@
 		8558DAFB26D0DF8600C3138B /* AccountControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountControllerProtocol.swift; sourceTree = "<group>"; };
 		8558DAFD26D0E3F800C3138B /* TransactionControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionControllerProtocol.swift; sourceTree = "<group>"; };
 		8558DAFF26D1C45700C3138B /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
+		8558DB0326D1C85D00C3138B /* NetworkRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestTests.swift; sourceTree = "<group>"; };
+		8558DB0526D1CA7300C3138B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		8558DB0926D1CFD000C3138B /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		8558DB0B26D1D01F00C3138B /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		8558DB0D26D1D2D700C3138B /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		8558DB0F26D1D5B300C3138B /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
 		85E22B3026C6E6C500ACFB1B /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExponentialOperator.swift; sourceTree = "<group>"; };
 		85E22B3426C6E9F800ACFB1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +137,7 @@
 				8558DAC126CB67A600C3138B /* Models */,
 				8558DAC226CB67AD00C3138B /* Views */,
 				8558DAC326CB67B400C3138B /* Controllers */,
-				85E22B1B26C610D600ACFB1B /* AppWideHelpers */,
+				85E22B1B26C610D600ACFB1B /* HelpersAndExtensions */,
 				853086FD26C5949F00F494D7 /* Resources */,
 			);
 			path = treXisMobileExercise;
@@ -209,19 +221,23 @@
 		8558DAE626CD787900C3138B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				8558DB0926D1CFD000C3138B /* MockURLSession.swift */,
+				8558DB0B26D1D01F00C3138B /* MockURLSessionDataTask.swift */,
+				8558DB0326D1C85D00C3138B /* NetworkRequestTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		85E22B1B26C610D600ACFB1B /* AppWideHelpers */ = {
+		85E22B1B26C610D600ACFB1B /* HelpersAndExtensions */ = {
 			isa = PBXGroup;
 			children = (
 				85E22B3226C6E7FA00ACFB1B /* ExponentialOperator.swift */,
 				85E22B5B26CA2B9400ACFB1B /* UIView.swift */,
 				85E22B5826CA1C9800ACFB1B /* UITextField.swift */,
 				8558DAFF26D1C45700C3138B /* Balance.swift */,
+				8558DB0526D1CA7300C3138B /* String.swift */,
 			);
-			path = AppWideHelpers;
+			path = HelpersAndExtensions;
 			sourceTree = "<group>";
 		};
 		85ED5B7226CAC3CB0062E1B0 /* Network */ = {
@@ -230,6 +246,8 @@
 				8558DAED26D02F0C00C3138B /* NetworkRequestProtocol.swift */,
 				8558DAEB26D019D300C3138B /* NetworkRequest.swift */,
 				8558DAF526D0A6B400C3138B /* NetworkError.swift */,
+				8558DB0D26D1D2D700C3138B /* URLSessionProtocol.swift */,
+				8558DB0F26D1D5B300C3138B /* URLSessionExtension.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -334,9 +352,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8558DB0E26D1D2D700C3138B /* URLSessionProtocol.swift in Sources */,
 				8558DB0026D1C45800C3138B /* Balance.swift in Sources */,
 				853086CE26C5948000F494D7 /* AppDelegate.swift in Sources */,
 				85E22B5926CA1C9800ACFB1B /* UITextField.swift in Sources */,
+				8558DB0626D1CA7400C3138B /* String.swift in Sources */,
 				8558DAF426D08DA400C3138B /* UserController.swift in Sources */,
 				8558DAF826D0B54B00C3138B /* AlertView.swift in Sources */,
 				8558DAEC26D019D300C3138B /* NetworkRequest.swift in Sources */,
@@ -359,6 +379,7 @@
 				85E22B3326C6E7FA00ACFB1B /* ExponentialOperator.swift in Sources */,
 				8558DAFC26D0DF8700C3138B /* AccountControllerProtocol.swift in Sources */,
 				8558DAFA26D0DCE700C3138B /* UserControllerProtocol.swift in Sources */,
+				8558DB1026D1D5B300C3138B /* URLSessionExtension.swift in Sources */,
 				8558DAEE26D02F0C00C3138B /* NetworkRequestProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +388,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8558DB0C26D1D01F00C3138B /* MockURLSessionDataTask.swift in Sources */,
+				8558DB0A26D1CFD000C3138B /* MockURLSession.swift in Sources */,
+				8558DB0426D1C85D00C3138B /* NetworkRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
