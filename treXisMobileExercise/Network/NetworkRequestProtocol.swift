@@ -9,6 +9,11 @@ import Foundation
 protocol NetworkRequestProtocol
 {
     //MARK: - Constants and Variables
+    ///This is where the protocol should be passed in so that we can create mockDataTasks for unit testing. I'm having to
+    ///pass in subclasses instead due to a struggle in conforming `URLSessionDataTask` to it's protocol and ahving the
+    ///`URLSession.shared.dataTask` function work.
+    var urlSessionProtocol: URLSessionProtocol { get }
+    
     //I probably should have made this a global variable so that nothing absolutely required the entire NetworkRequestProtocol. Then I could have made the NetworkRequestProtocol functions static and kept their calls confined to themselves. A potential refactor for the future.
     ///This variable is set with the initial value of 5555. The variable may be reset upon attempting to login. First,
     ///should the `portTextField` value not be empty, the port value will be updated on the instance of `NetworkRequest` within
