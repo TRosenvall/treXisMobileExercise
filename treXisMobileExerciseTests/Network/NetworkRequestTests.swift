@@ -32,6 +32,7 @@ class NetworkRequestTests: XCTestCase
         //NOP
     }
 
+    //MARK: - Instance Tests
     func testPortDidSet_WithNumericCharacters_WillUpdateURLWithPort() throws
     {
         //Arrange
@@ -219,7 +220,7 @@ class NetworkRequestTests: XCTestCase
         
         //Act
         //Function to be tested
-        instanceUnderTest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
+        instanceUnderTest.getGenericModel(typeOf: [MockModel].self, isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
         { (results: Result<[MockModel], NetworkError>?) in
             switch results
             {
@@ -257,7 +258,7 @@ class NetworkRequestTests: XCTestCase
         
         //Act
         //Function to be tested
-        instanceUnderTest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
+        instanceUnderTest.getGenericModel(typeOf: [MockModel].self, isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
         { (results: Result<[MockModel], NetworkError>?) in
             switch results
             {
@@ -295,7 +296,7 @@ class NetworkRequestTests: XCTestCase
         
         //Act
         //Function to be tested
-        instanceUnderTest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
+        instanceUnderTest.getGenericModel(typeOf: [MockModel].self, isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
         { (results: Result<[MockModel], NetworkError>?) in
             switch results
             {
@@ -345,7 +346,7 @@ class NetworkRequestTests: XCTestCase
         
         //Act
         //Function to be tested
-        instanceUnderTest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
+        instanceUnderTest.getGenericModel(typeOf: [MockModel].self, isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
         { (results: Result<[MockModel], NetworkError>?) in
             switch results
             {

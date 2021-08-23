@@ -158,7 +158,8 @@ class NetworkRequest: NetworkRequestProtocol
     ///no authentication token is received from the server. Because of this, I'm just using the isAuthenticated bool to verify whether
     ///or not any further network calls need to be made. That is to say, in the getGenericModel() function, I check whether or not
     ///isAuthenticated is true before doing anything network related.
-    func getGenericModel<T>(isAuthenticated: Bool,
+    func getGenericModel<T>(typeOf: T.Type,
+                            isAuthenticated: Bool,
                             endpoint: String,
                             parameters: [(String, Any)],
                             completion: @escaping (Result<T, NetworkError>?) -> Void) where T : Decodable, T : Equatable

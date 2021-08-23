@@ -10,18 +10,18 @@ import Foundation
 class AccountController: AccountControllerProtocol
 {
     //MARK: - Constants and Variables
-    var networkRequest: NetworkRequestProtocol
+    var networkRequestProtocol: NetworkRequestProtocol
     
     //MARK: - Lifecycle Functions
-    init(networkRequest: NetworkRequestProtocol)
+    init(networkRequestProtocol: NetworkRequestProtocol)
     {
-        self.networkRequest = networkRequest
+        self.networkRequestProtocol = networkRequestProtocol
     }
     
     //MARK: - CRUD Functions
     func getAccounts(isAuthenticated: Bool, completion: @escaping(Result<[Account], NetworkError>) -> Void)
     {
-        networkRequest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: "/accounts", parameters: [])
+        networkRequestProtocol.getGenericModel(typeOf: [Account].self, isAuthenticated: isAuthenticated, endpoint: "/accounts", parameters: [])
         { (results: Result<[Account], NetworkError>?) in
             guard let results = results
                   else {return}
@@ -33,5 +33,15 @@ class AccountController: AccountControllerProtocol
                 completion(.failure(networkError))
             }
         }
+    }
+    
+    static func isValidID(account: Account) -> Bool
+    {
+        return account.id.count > 0 && account.id.isNumeric
+    }
+    
+    static func isValidName(account: Account) -> Bool
+    {
+        return account.name.count > 0
     }
 }

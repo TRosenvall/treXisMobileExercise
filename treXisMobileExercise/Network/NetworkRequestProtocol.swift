@@ -50,7 +50,8 @@ protocol NetworkRequestProtocol
     ///     - endpoint: A string defining the endpoint of the URL at which the model can be found.
     ///     - parameters: An array of tupers in which the first value is a string, and the second value can be of any type. The array holds any necessary query parameters needed to retrieve the model.
     ///     - completion: The completion handler to invoke to pass the model or an error back to the modelController
-    func getGenericModel<T: Decodable&Equatable> (isAuthenticated: Bool,
+    func getGenericModel<T: Decodable&Equatable> (typeOf: T.Type,
+                                                  isAuthenticated: Bool,
                                                   endpoint: String,
                                                   parameters: [(String, Any)],
                                                   completion: @escaping(Result<T,NetworkError>?) -> Void)

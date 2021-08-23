@@ -10,18 +10,18 @@ import Foundation
 class TransactionController: TransactionControllerProtocol
 {
     //MARK: - Constants and Variables
-    var networkRequest: NetworkRequestProtocol
+    var networkRequestProtocol: NetworkRequestProtocol
     
     //MARK: - Lifecycle Functions
-    init(networkRequest: NetworkRequestProtocol)
+    init(networkRequestProtocol: NetworkRequestProtocol)
     {
-        self.networkRequest = networkRequest
+        self.networkRequestProtocol = networkRequestProtocol
     }
     
     //MARK: - CRUD
     func getTransactions(isAuthenticated: Bool, accountID: String, completion: @escaping(Result<[Transaction], NetworkError>) -> Void)
     {
-        networkRequest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: "/transactions", parameters: [("accountId", accountID)], completion:
+        networkRequestProtocol.getGenericModel(typeOf: [Transaction].self, isAuthenticated: isAuthenticated, endpoint: "/transactions", parameters: [("accountId", accountID)], completion:
         { (results: Result<[Transaction], NetworkError>?) in
             guard let results = results
                   else {return}
@@ -33,5 +33,15 @@ class TransactionController: TransactionControllerProtocol
                 completion(.failure(networkError))
             }
         })
+    }
+    
+    static func isValidID(transaction: Transaction) -> Bool
+    {
+        return transaction.id.count > 0 && transaction.id.isNumeric
+    }
+    
+    static func isValidTitle(transaction: Transaction) -> Bool
+    {
+        return transaction.title.count > 0
     }
 }

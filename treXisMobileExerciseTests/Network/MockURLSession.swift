@@ -11,7 +11,7 @@ import Foundation
 class MockURLSession: URLSessionProtocol
 {
     //MARK: - Constants and Variables
-    var mockURLSessionDataTask = MockURLSessionDataTask() //How does one get an object without initializing it?
+    var mockURLSessionDataTask = MockURLSessionDataTask() //How does one get a URLSessionDataTask object without initializing it? I couldn't figure out how to override the dataTask function and make it return a URLSessionDataTaskProtocol so I didn't make the Protocol for, or extension to, the URLSessionDataTask.
     var data: Data?
     var urlResponse: URLResponse?
     var error: Error?
