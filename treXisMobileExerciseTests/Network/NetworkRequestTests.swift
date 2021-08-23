@@ -204,7 +204,7 @@ class NetworkRequestTests: XCTestCase
         waitForExpectations(timeout: 5, handler: nil)
     }
     
-    func testGetGenericModelForAccountModel_passInIsAuthenticatedFalse_willReceiveNetworkErrorAuthenticationError()
+    func testGetGenericModel_passInIsAuthenticatedFalse_willReceiveNetworkErrorAuthenticationError()
     {
         //Arrange
         //Asyncronous Expectation Set
@@ -214,13 +214,13 @@ class NetworkRequestTests: XCTestCase
         //Set correct parameters
         let isAuthenticated = false
         //No network call made if not authenticated
-        let endpoint = "/accounts"
+        let endpoint = "/endpoint"
         let parameters: [(String, Any)] = []
         
         //Act
         //Function to be tested
         instanceUnderTest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
-        { (results: Result<[Account], NetworkError>?) in
+        { (results: Result<[MockModel], NetworkError>?) in
             switch results
             {
             case .success(_):
@@ -239,7 +239,7 @@ class NetworkRequestTests: XCTestCase
         waitForExpectations(timeout: 5, handler: nil)
     }
     
-    func testGetGenericModelForAccountModel_passInBadEndpoint_willReceiveNetworkErrorBadURL()
+    func testGetGenericModel_passInBadEndpoint_willReceiveNetworkErrorTransportError()
     {
         //Arrange
         //Asyncronous Expectation Set
@@ -252,20 +252,20 @@ class NetworkRequestTests: XCTestCase
         let endpoint = "/badEndpoint"
         let parameters: [(String, Any)] = []
         //Response which should be received at network call.
-        let urlSession = MockURLSession(data: nil, urlResponse: nil, error: NetworkError.badData)
+        let urlSession = MockURLSession(data: nil, urlResponse: nil, error: NetworkError.transportError)
         instanceUnderTest.urlSessionProtocol = urlSession
         
         //Act
         //Function to be tested
         instanceUnderTest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
-        { (results: Result<[Account], NetworkError>?) in
+        { (results: Result<[MockModel], NetworkError>?) in
             switch results
             {
             case .success(_):
                 //Assert
-                XCTFail("No Network call should be made if isAuthenticated is false. No model should be returned.")
+                XCTFail("No model should be returned.")
             case .failure(let result):
-                XCTAssertEqual(result, NetworkError.authenticationError)
+                XCTAssertEqual(result, NetworkError.transportError)
             case .none:
                 XCTFail("Results should never return in this case.")
             }
@@ -276,81 +276,94 @@ class NetworkRequestTests: XCTestCase
         //Wait for expectations to be fulfilled
         waitForExpectations(timeout: 5, handler: nil)
     }
+    
+    func testGetGenericModel_passInBadParameters_willReceiveNetworkErrorTransportError()
+    {
+        //Arrange
+        //Asyncronous Expectation Set
+        let expectation = self.expectation(description: "Pinging Server")
+        //Reset the baseURLWithPort to the default port
+        instanceUnderTest.port = self.defaultPort
+        //Set correct parameters
+        let isAuthenticated = true
+        //No network call made if not authenticated
+        let endpoint = "/endpoint"
+        let parameters: [(String, Any)] = [("Bad","Parameter")]
+        //Response which should be received at network call.
+        let urlSession = MockURLSession(data: nil, urlResponse: nil, error: NetworkError.transportError)
+        instanceUnderTest.urlSessionProtocol = urlSession
+        
+        //Act
+        //Function to be tested
+        instanceUnderTest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
+        { (results: Result<[MockModel], NetworkError>?) in
+            switch results
+            {
+            case .success(_):
+                //Assert
+                XCTFail("No model should be returned.")
+            case .failure(let result):
+                XCTAssertEqual(result, NetworkError.transportError)
+            case .none:
+                XCTFail("Results should never return in this case.")
+            }
+            //Fulfill expectations.
+            expectation.fulfill()
+        }
+
+        //Wait for expectations to be fulfilled
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testGetGenericModel_passInCorrectValues_willReceiveDecodedModel()
+    {
+        //Arrange
+        //Asyncronous Expectation Set
+        let expectation = self.expectation(description: "Pinging Server")
+        //Reset the baseURLWithPort to the default port
+        instanceUnderTest.port = self.defaultPort
+        //Set correct parameters
+        let isAuthenticated = true
+        //No network call made if not authenticated
+        let endpoint = "/endpoint"
+        let parameters: [(String, Any)] = [("Good","Parameter")]
+        //Build models to test
+        let mockModel1 = MockModel(id: "1", name: "mockModel1", balance: 0.00)
+        let mockModel2 = MockModel(id: "2", name: "mockModel2", balance: 0.00)
+        let mockModels: [MockModel] = [mockModel1, mockModel2]
+        //Encode the models as data
+        do
+        {
+            let data = try JSONEncoder().encode(mockModels)
+            let urlSession = MockURLSession(data: data, urlResponse: nil, error: nil)
+            instanceUnderTest.urlSessionProtocol = urlSession
+        }
+        catch
+        {
+            print("JSONEncoding Error in NetworkRequestTests")
+        }
+        
+        //Act
+        //Function to be tested
+        instanceUnderTest.getGenericModel(isAuthenticated: isAuthenticated, endpoint: endpoint, parameters: parameters)
+        { (results: Result<[MockModel], NetworkError>?) in
+            switch results
+            {
+            case .success(let result):
+                //Assert
+                print(result)
+                print(mockModels)
+                XCTAssertEqual(result, mockModels)
+            case .failure(_):
+                XCTFail("No model should be returned.")
+            case .none:
+                XCTFail("Results should never return in this case.")
+            }
+            //Fulfill expectations.
+            expectation.fulfill()
+        }
+        
+        //Wait for expectations to be fulfilled
+        waitForExpectations(timeout: 5, handler: nil)
+    }
 }
-
-//func getGenericModel<T>(isAuthenticated: Bool,
-//                        endpoint: String,
-//                        parameters: [(String, Any)],
-//                        completion: @escaping (Result<T, NetworkError>?) -> Void) where T : Decodable, T : Equatable
-//{
-//    if isAuthenticated {
-//        //Build URL
-//        guard let url = URL(string: baseURLWithPort + endpoint)
-//        else
-//        {
-//            print("Bad URL")
-//            completion(.failure(.badURL))
-//            return
-//        }
-//
-//        //Build out server request
-//        var request = URLRequest(url: url)
-//        guard let url = request.url
-//              else {completion(nil); return}
-//        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
-//        var queryItems = [URLQueryItem]()
-//
-//        //Setup query items for server request
-//        for (key, value) in parameters
-//        {
-//            let queryItem = URLQueryItem(name: key, value: String(describing: value))
-//            queryItems.append(queryItem)
-//        }
-//        components?.queryItems = queryItems
-//
-//        //Finalize request parameters
-//        request.httpMethod = "GET"
-//        request.url = components?.url
-//
-//        //Send request to server
-//        urlSessionProtocol.dataTask(with: request)
-//        { data, response, error in
-//            DispatchQueue.main.async
-//            {
-//                //Error Handling
-//                if let unwrappedError = error
-//                {
-//                    print("Transport Error")
-//                    print(unwrappedError.localizedDescription)
-//                    completion(.failure(.transportError));
-//                    return
-//                }
-//
-//                //Data Handling
-//                if let unwrappedData = data
-//                {
-//                    //JSON Parsing
-//                    do
-//                    {
-//                        let model = try JSONDecoder().decode(T.self, from: unwrappedData)
-//                        print("Successfully Decoded \(T.self) from JSON")
-//                        completion(Result.success(model))
-//                    }
-//                    catch let jsonError
-//                    {
-//                        print("Error Decoding JSON")
-//                        print(jsonError.localizedDescription)
-//                        completion(.failure(.badData));
-//                        return
-//                    }
-//                }
-//            }
-//        }.resume() //Tasks are initialized in suspended state, .resume() needed to start the task.
-//    }
-//    else
-//    {
-//        print("Error Recieving Account Data: User Is Not Authenticated")
-//        completion(.failure(.authenticationError))
-//    }
-//}
-
