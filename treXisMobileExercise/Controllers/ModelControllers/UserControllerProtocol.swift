@@ -12,7 +12,7 @@ protocol UserControllerProtocol
     //MARK: - Constants and Variables
     ///This instance of `NetworkRequestProtocol` is designed to hold its own port value. This value will be used to call
     ///any `NetworkRequestProtocol` functions which are all called from the from the active instance of `UserControllerProtocol`
-    var networkRequest: NetworkRequestProtocol { get set }
+    var networkRequestProtocol: NetworkRequestProtocol { get set }
     
     ///Because the `User` model tracks it's own `[Account]` and `[Transaction]`, it is prudent that the `UserController` be able
     ///to call the modelControllers directly to retreive and interact with these models.

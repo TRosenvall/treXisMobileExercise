@@ -11,5 +11,5 @@ struct Account: Equatable, Decodable
 {
     let id: String
     let name: String
-    let balance: Float
+    let balance: Float //Can be any value.
 }

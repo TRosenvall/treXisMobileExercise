@@ -10,8 +10,7 @@ import Foundation
 class UserController: UserControllerProtocol
 {
     //MARK: - Constants and Variables
-    var urlSessionProtocol = URLSession.shared
-    var networkRequest: NetworkRequestProtocol //This networkRequestProtocol is singular and passed through every other controller as needed. It should not be declared again.
+    var networkRequestProtocol: NetworkRequestProtocol //This networkRequestProtocol is singular and passed through every other controller as needed. It should not be declared again.
     var accountControllerProtocol: AccountControllerProtocol
     var transactionControllerProtocol: TransactionControllerProtocol
     
@@ -19,11 +18,13 @@ class UserController: UserControllerProtocol
     var user: User = User()
     
     //MARK: - Lifecycle Functions
-    init()
+    init(networkRequestProtocol: NetworkRequestProtocol,
+         accountControllerProtocol: AccountControllerProtocol,
+         transactionControllerProtocol: TransactionControllerProtocol)
     {
-        self.networkRequest = NetworkRequest(urlSessionProtocol: self.urlSessionProtocol)
-        self.accountControllerProtocol = AccountController(networkRequest: self.networkRequest)
-        self.transactionControllerProtocol = TransactionController(networkRequest: self.networkRequest)
+        self.networkRequestProtocol = networkRequestProtocol
+        self.accountControllerProtocol = accountControllerProtocol
+        self.transactionControllerProtocol = transactionControllerProtocol
     }
     
     //MARK: - CRUD and Protocol Functions
@@ -38,17 +39,17 @@ class UserController: UserControllerProtocol
         //Set the port value
         if port != ""
         {
-            networkRequest.port = port
+            networkRequestProtocol.port = port
         }
         //Attempt to ping the server at the given port
-        networkRequest.ping
+        networkRequestProtocol.ping
         { results in
             switch results
             {
             //If the server was successfully pinged
             case .success(_):
                 //Attempt to log into the server
-                self.networkRequest.login(parameters: parameters)
+                self.networkRequestProtocol.login(parameters: parameters)
                 { results in
                     switch results
                     {
